@@ -1,0 +1,61 @@
+# Requirements for AI in Healthcare Volume 1 Notebooks
+# Install with: pip install -r requirements.txt
+
+# Core scientific computing
+numpy>=1.24.0
+pandas>=2.0.0
+scipy>=1.10.0
+
+# Machine learning
+scikit-learn>=1.3.0
+xgboost>=2.0.0
+
+# Deep learning (PyTorch)
+torch>=2.0.0
+torchvision>=0.15.0
+
+# Medical imaging
+scikit-image>=0.21.0
+nibabel>=5.0.0  # For medical image formats (NIfTI)
+pydicom>=2.4.0  # For DICOM files
+
+# Visualization
+matplotlib>=3.7.0
+seaborn>=0.12.0
+plotly>=5.14.0  # For interactive plots
+
+# NLP and transformers
+transformers>=4.30.0  # Hugging Face transformers
+tokenizers>=0.13.0
+sentencepiece>=0.1.99
+
+# OpenAI (for LLM notebooks)
+openai>=1.0.0
+
+# Interpretability
+shap>=0.42.0  # For SHAP explanations
+lime>=0.2.0   # For LIME explanations
+
+# Privacy and security
+opacus>=1.4.0  # For differential privacy
+crypten>=0.4.0  # For secure multi-party computation (optional)
+
+# Signal processing
+pywavelets>=1.4.1  # For wavelet transforms
+
+# Utilities
+tqdm>=4.65.0  # Progress bars
+ipywidgets>=8.0.0  # Interactive widgets for Jupyter
+
+# Data loading (optional - for real datasets)
+# Uncomment if using MIMIC or PhysioNet data
+# wfdb>=4.1.0  # For PhysioNet waveform data
+
+# Development tools (optional)
+jupyter>=1.0.0
+notebook>=7.0.0
+ipykernel>=6.23.0
+
+# Testing (optional)
+# pytest>=7.3.0
+# pytest-cov>=4.1.0
