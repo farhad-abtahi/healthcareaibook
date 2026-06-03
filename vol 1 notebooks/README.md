@@ -1,320 +1,128 @@
-# Notebooks for AI in Healthcare: Volume 1
+# Volume 1: Foundations and Technical Principles
 
-This directory contains 47 hands-on Jupyter notebooks that accompany the textbook chapters. Each notebook provides practical implementations, exercises, and real-world examples to reinforce the concepts covered in the text.
+_Artificial Intelligence in Healthcare, Volume 1_
 
-## 📚 How to Use These Notebooks
+This directory holds the **44 hands-on Jupyter notebooks** that accompany Volume 1, organized into one folder per chapter (`chapter_04` through `chapter_11`). Chapters 1 to 3 are conceptual and have no notebooks.
 
-### Getting Started
+Every notebook is self-contained, includes explanatory markdown and exercises, and runs in Google Colab with no local setup.
 
-1. **Online (Recommended for Beginners)**:
-   - Open notebooks directly in [Google Colab](https://colab.research.google.com/) - no setup required
-   - Click the "Open in Colab" badge at the top of each notebook
-   - All dependencies are pre-installed
+## Getting started
 
-2. **Local Environment**:
-   - Clone this repository
-   - Install dependencies: `pip install -r requirements.txt`
-   - Launch Jupyter: `jupyter notebook`
+**Google Colab (no setup):** open any notebook in the browser using this link pattern (note the spaces in the folder name are written as `%20` in URLs):
 
-### Learning Path
+```
+https://colab.research.google.com/github/farhad-abtahi/healthcareaibook/blob/main/vol%201%20notebooks/chapter_04/notebook_4_1_data_quality_assessment.ipynb
+```
 
-- **For Clinicians**: Focus on notebooks 4.1, 5.1, 5.3, 9.4, and 10.1-10.4 (interpretability)
-- **For Data Scientists**: Complete all notebooks sequentially
-- **For Students**: Work through all notebooks with exercises
-- **For Administrators**: Review notebooks 5.3, 9.2, 9.4, 11.1-11.3
-
----
-
-## 📓 Notebook Inventory by Chapter
-
-### Chapter 4: Data Preparation and Cross-Validation (5 notebooks)
-
-| Notebook | Title | Topics Covered |
-|----------|-------|----------------|
-| 4.1 | Data Quality Assessment in Healthcare | Completeness, outliers, consistency checks |
-| 4.2 | Missing Data Handling in Healthcare | MCAR, MAR, MNAR; imputation strategies |
-| 4.3 | Feature Engineering for Healthcare ML | Temporal features, domain-specific features |
-| 4.4 | Cross-Validation Strategies for Healthcare ML | K-fold, stratified, time-series splitting |
-| 4.5 | Data Leakage Detection and Prevention | Temporal leakage, target leakage |
-
----
-
-### Chapter 5: Evaluation Metrics and Model Performance (6 notebooks)
-
-| Notebook | Title | Topics Covered |
-|----------|-------|----------------|
-| 5.1 | Classification Metrics Deep Dive | Sensitivity, specificity, PPV, NPV, F1 |
-| 5.2 | ROC and Precision-Recall Curves | AUROC, AUPRC, threshold selection |
-| 5.3 | CVD Risk Prediction and Calibration | Calibration curves, Brier score |
-| 5.4 | Regression Metrics | MAE, RMSE, R², residual analysis |
-| 5.5 | Segmentation Metrics | Dice coefficient, IoU, Hausdorff distance |
-| 5.6 | Fairness Metrics | Demographic parity, equal opportunity |
-
-**Key Journey**: Notebook 5.3 demonstrates David's cardiovascular risk prediction journey from Chapter 3.
-
----
-
-### Chapter 6: Medical Imaging and Computer Vision (7 notebooks)
-
-| Notebook | Title | Topics Covered |
-|----------|-------|----------------|
-| 6.1 | CNN Fundamentals | Convolutional layers, pooling, architectures |
-| 6.2 | Melanoma Classification with Fairness Analysis | **Priya's Journey** - skin tone bias |
-| 6.3 | Image Preprocessing | Normalization, resizing, windowing |
-| 6.4 | Data Augmentation | Rotation, flipping, color jittering |
-| 6.5 | Lung Nodule Detection with Object Detection | **Jamal's Journey** - YOLO, Faster R-CNN |
-| 6.6 | Brain Tumor Segmentation with U-Net | **Elena's Journey** - 3D segmentation |
-| 6.7 | GradCAM Visualization | Attention maps, model debugging |
-| 6.8 | Transfer Learning for Medical Imaging | Fine-tuning, feature extraction |
-
-**Key Journeys**:
-- Notebook 6.2 → Journey 5 (Priya's melanoma)
-- Notebook 6.5 → Journey 3 (Jamal's lung nodules)
-- Notebook 6.6 → Journey 4 (Elena's brain tumor)
-
----
-
-### Chapter 7: Time Series and Physiological Signals (6 notebooks)
-
-| Notebook | Title | Topics Covered |
-|----------|-------|----------------|
-| 7.1 | Signal Preprocessing for Time Series Analysis | Filtering, artifact removal, resampling |
-| 7.2 | Time Series Feature Extraction for Clinical Signals | Statistical features, frequency domain |
-| 7.3 | Sepsis Prediction from Time Series Data | **Marcus's Journey** - XGBoost, SHAP |
-| 7.4 | ECG Signal Classification for AFib Detection | **Yuki's Journey** - 1D CNN for ECG |
-| 7.5 | Time Series Forecasting for Clinical Applications | ARIMA, LSTM, Prophet |
-| 7.6 | Real-Time Signal Processing for Clinical Monitoring | Streaming data, online learning |
-| 7.7 | RNN and LSTM Architectures | Sequence models, vanishing gradients |
-
-**Key Journeys**:
-- Notebook 7.3 → Journey 1 (Marcus's sepsis)
-- Notebook 7.4 → Journey 2 (Yuki's AFib)
-
----
-
-### Chapter 8: Natural Language Processing and LLMs (8 notebooks)
-
-| Notebook | Title | Topics Covered |
-|----------|-------|----------------|
-| 8.1 | Clinical Text Preprocessing | Tokenization, negation detection |
-| 8.2 | Named Entity Recognition (NER) | MedCAT, spaCy, medication extraction |
-| 8.3 | BERT for Clinical Text Classification | Fine-tuning, sequence classification |
-| 8.4 | LLM Prompting Strategies | Zero-shot, few-shot, chain-of-thought |
-| 8.5 | Retrieval-Augmented Generation (RAG) for Clinical Decision Support | Vector databases, semantic search |
-| 8.6 | Clinical Text Summarization | Abstractive, extractive summarization |
-| 8.7 | Hallucination Detection in Clinical LLMs | Factuality checking, confidence estimation |
-| 8.8 | LLM-Based Differential Diagnosis System | **Aisha's Journey** - GPT-4, Claude |
-
-**Key Journey**: Notebook 8.8 → Journey 7 (Aisha's differential diagnosis)
-
----
-
-### Chapter 9: Fairness and Bias in Healthcare AI (5 notebooks)
-
-| Notebook | Title | Topics Covered |
-|----------|-------|----------------|
-| 9.1 | Measuring Dataset Bias | Representation analysis, demographic distributions |
-| 9.2 | Fairness Metrics Implementation | All four fairness metrics, Chouldechova's theorem |
-| 9.3 | Bias Mitigation Strategies | Resampling, reweighting, threshold optimization |
-| 9.4 | Priya's Journey - When Bias Becomes Personal | **Complete Journey 5 walkthrough** |
-| 9.5 | Intersectional Fairness | Multiple protected attributes, compound bias |
-
-**Key Journey**: Notebook 9.4 is the complete implementation of Priya's melanoma journey from Chapter 3, demonstrating skin tone bias.
-
----
-
-### Chapter 10: Interpretability and Explainability (4 notebooks)
-
-| Notebook | Title | Topics Covered |
-|----------|-------|----------------|
-| 10.1 | Feature Importance and SHAP Values | SHAP waterfall plots, force plots, summary plots |
-| 10.2 | LIME - Local Interpretable Model-agnostic Explanations | Tabular, image, text explanations |
-| 10.3 | GradCAM for Medical Imaging | Attention visualization, model debugging |
-| 10.4 | Counterfactual Explanations - "What If" Clinical Scenarios | DiCE, actionable recourse |
-
-**All notebooks**: Demonstrate interpretability methods critical for clinical trust and regulatory compliance.
-
----
-
-### Chapter 11: Privacy, Security, and Trustworthy AI (3 notebooks)
-
-| Notebook | Title | Topics Covered |
-|----------|-------|----------------|
-| 11.1 | Differential Privacy for Healthcare AI | ε-DP, privacy-utility trade-off |
-| 11.2 | Federated Learning for Healthcare | FedAvg, multi-hospital collaboration |
-| 11.3 | Adversarial Robustness | FGSM, PGD attacks, defenses |
-
-**All notebooks**: Essential for deploying trustworthy AI in healthcare settings.
-
----
-
-## 📊 Total Notebooks: 44
-
-**By Chapter**:
-- Chapter 4: 5 notebooks (Data Preparation)
-- Chapter 5: 6 notebooks (Evaluation Metrics)
-- Chapter 6: 7 notebooks (Medical Imaging)
-- Chapter 7: 6 notebooks (Time Series)
-- Chapter 8: 8 notebooks (NLP & LLMs)
-- Chapter 9: 5 notebooks (Fairness & Bias)
-- Chapter 10: 4 notebooks (Interpretability)
-- Chapter 11: 3 notebooks (Privacy & Security)
-
-**Note**: Chapters 0-3 do not have separate notebooks. Chapter 3's journeys are implemented in notebooks throughout later chapters (see "Key Journeys" markers above).
-
----
-
-## 🔗 Accessing Notebooks
-
-All notebooks are available in the book's GitHub repository:
-
-**[GitHub Repository - AI in Healthcare Volume 1 Notebooks]** *(see Chapter 0 for link)*
-
-### Quick Start with Google Colab
-
-Each notebook includes a "Open in Colab" badge. Simply click it to launch the notebook in Google Colab with all dependencies pre-configured.
-
-### Running Locally
+**Local:**
 
 ```bash
-# Clone the repository
-git clone https://github.com/[YOUR-USERNAME]/AI-in-healthcare-book
-
-# Navigate to notebooks directory
-cd AI-in-healthcare-book/notebooks
-
-# Install dependencies
+git clone https://github.com/farhad-abtahi/healthcareaibook.git
+cd "healthcareaibook/vol 1 notebooks"
 pip install -r requirements.txt
-
-# Launch Jupyter
 jupyter notebook
 ```
 
-**Dependencies**: All required packages are listed in `notebooks/requirements.txt`. Major dependencies include:
-- NumPy, Pandas, Matplotlib, Seaborn (core scientific computing)
-- Scikit-learn, XGBoost (machine learning)
-- PyTorch, Torchvision (deep learning)
-- Transformers, OpenAI (NLP and LLMs)
-- SHAP, LIME (interpretability)
-- Scikit-image, pydicom (medical imaging)
+## Naming convention
 
----
+Files follow `notebook_X_Y_title.ipynb`, where `X` is the chapter (4 to 11) and `Y` is the sequence within the chapter.
 
-## 📋 Notebook Structure
+## Notebook index
 
-Each notebook follows a consistent structure:
+### Chapter 4: Data Preparation
 
-1. **Header**: Title, chapter reference, learning objectives
-2. **Setup**: Imports, configuration, data loading
-3. **Conceptual Introduction**: Brief theory recap from text chapter
-4. **Hands-On Implementation**: Step-by-step code with explanations
-5. **Visualizations**: Charts, plots, and interactive elements
-6. **Clinical Context**: Real-world implications
-7. **Exercises**: Practice problems (solutions provided)
-8. **Summary**: Key takeaways and next steps
+| Notebook | Title | Key skills | Clinical journey |
+|---|---|---|---|
+| [`4.1`](chapter_04/notebook_4_1_data_quality_assessment.ipynb) | Data Quality Assessment | Missing value analysis, outlier detection, data profiling | Foundation for all journeys |
+| [`4.2`](chapter_04/notebook_4_2_missing_data_handling.ipynb) | Missing Data Handling | MCAR/MAR/MNAR analysis, imputation (mean, KNN, MICE) | All journeys with EHR data |
+| [`4.3`](chapter_04/notebook_4_3_feature_engineering.ipynb) | Feature Engineering | Clinical feature creation, temporal and domain-specific features | Marcus, David |
+| [`4.4`](chapter_04/notebook_4_4_cross_validation.ipynb) | Cross-Validation Strategies | K-fold, stratified, GroupKFold, TimeSeriesSplit, nested CV | All journeys |
+| [`4.5`](chapter_04/notebook_4_5_data_leakage.ipynb) | Data Leakage Detection | Target, temporal, and preprocessing leakage detection | Critical for all journeys |
 
----
+### Chapter 5: Evaluation Metrics
 
-## 🎯 Learning Objectives
+| Notebook | Title | Key skills | Clinical journey |
+|---|---|---|---|
+| [`5.1`](chapter_05/notebook_5_1_classification_metrics.ipynb) | Classification Metrics | Confusion matrix, sensitivity, specificity, PPV, NPV, F1 | All classification tasks |
+| [`5.2`](chapter_05/notebook_5_2_roc_pr_curves.ipynb) | ROC and PR Curves | AUROC, AUPRC, threshold selection, operating points | Elena, Jamal |
+| [`5.3`](chapter_05/notebook_5_3_cvd_risk_calibration.ipynb) | Calibration Analysis (CVD Risk) | Reliability diagrams, Brier score, Platt scaling | David |
+| [`5.4`](chapter_05/notebook_5_4_regression_metrics.ipynb) | Regression Metrics | MSE, MAE, R-squared, clinical error analysis | Continuous outcome prediction |
+| [`5.5`](chapter_05/notebook_5_5_segmentation_metrics.ipynb) | Segmentation Metrics | Dice coefficient, IoU, pixel accuracy, boundary metrics | Medical image segmentation |
+| [`5.6`](chapter_05/notebook_5_6_fairness_metrics.ipynb) | Fairness Metrics Preview | Subgroup AUROC, demographic stratification, disparity detection | Priya, all journeys |
 
-By completing these notebooks, you will:
+### Chapter 6: Medical Imaging and Computer Vision
 
-- ✅ Implement ML pipelines from data preparation through deployment
-- ✅ Build and evaluate models using healthcare-appropriate metrics
-- ✅ Create CNNs for medical imaging tasks
-- ✅ Process time-series physiological signals
-- ✅ Apply NLP and LLMs to clinical text
-- ✅ Measure and mitigate algorithmic bias
-- ✅ Generate model explanations for clinical trust
-- ✅ Implement privacy-preserving techniques
+| Notebook | Title | Key skills | Clinical journey |
+|---|---|---|---|
+| [`6.1`](chapter_06/notebook_6_1_cnn_fundamentals.ipynb) | CNN Fundamentals | Convolution, pooling, architecture design, PyTorch | Foundation for imaging |
+| [`6.2`](chapter_06/notebook_6_2_melanoma_classification_fairness.ipynb) | Melanoma Classification and Fairness | Transfer learning, fine-tuning, fairness evaluation | Priya |
+| [`6.3`](chapter_06/notebook_6_3_preprocessing.ipynb) | Image Preprocessing | Normalization, resizing, CT windowing, augmentation | All imaging journeys |
+| [`6.4`](chapter_06/notebook_6_4_augmentation.ipynb) | Data Augmentation | Geometric and color transforms, MixUp, CutMix | Elena, Jamal, Priya |
+| [`6.5`](chapter_06/notebook_6_5_lung_nodule_detection.ipynb) | Lung Nodule Detection | Object detection, anchor boxes, false positive reduction | Jamal |
+| [`6.6`](chapter_06/notebook_6_6_brain_tumor_segmentation_unet.ipynb) | Brain Tumor Segmentation (U-Net) | U-Net, encoder-decoder, skip connections, multi-class | Elena |
+| [`6.7`](chapter_06/notebook_6_7_gradcam.ipynb) | GradCAM Visualization | Gradient-weighted class activation maps, attention | All imaging (interpretability) |
 
----
+### Chapter 7: Time Series Analysis
 
-## ⚠️ Important Notes
+| Notebook | Title | Key skills | Clinical journey |
+|---|---|---|---|
+| [`7.1`](chapter_07/notebook_7_1_signal_preprocessing.ipynb) | Signal Preprocessing | Filtering, resampling, artifact removal, baseline correction | Marcus, Yuki |
+| [`7.2`](chapter_07/notebook_7_2_feature_extraction.ipynb) | Feature Extraction | Statistical and frequency-domain features, wavelets, HRV | Yuki, Marcus |
+| [`7.3`](chapter_07/notebook_7_3_sepsis_prediction_xgboost.ipynb) | Sepsis Prediction with XGBoost | Gradient boosting, feature importance, early warning scores | Marcus |
+| [`7.4`](chapter_07/notebook_7_4_ecg_classification_1d_cnn.ipynb) | ECG Classification with 1D CNN | 1D convolutions, arrhythmia detection, multi-lead ECG | Yuki |
+| [`7.5`](chapter_07/notebook_7_5_forecasting.ipynb) | Time Series Forecasting | ARIMA, Prophet, sequence models, vital sign prediction | ICU monitoring |
+| [`7.6`](chapter_07/notebook_7_6_realtime_processing.ipynb) | Real-time Processing | Streaming data, sliding windows, online learning, alerts | Marcus |
 
-### Duplicate Files
+### Chapter 8: Natural Language Processing and LLMs
 
-Some chapters have duplicate notebook files with slightly different names:
-- `notebook_4_1_data_quality.ipynb` vs `notebook_4_1_data_quality_assessment.ipynb`
-- `notebook_4_2_missing_data.ipynb` vs `notebook_4_2_missing_data_handling.ipynb`
+| Notebook | Title | Key skills | Clinical journey |
+|---|---|---|---|
+| [`8.1`](chapter_08/notebook_8_1_text_preprocessing.ipynb) | Text Preprocessing | Tokenization, medical abbreviations, negation detection | Aisha |
+| [`8.2`](chapter_08/notebook_8_2_ner.ipynb) | Named Entity Recognition | Clinical NER, medication extraction, spaCy and Transformers | Aisha |
+| [`8.3`](chapter_08/notebook_8_3_bert_classification.ipynb) | BERT for Classification | Fine-tuning BERT, clinical text classification | All text applications |
+| [`8.4`](chapter_08/notebook_8_4_llm_prompting.ipynb) | LLM Prompting | Prompt engineering, few-shot learning, chain-of-thought | Aisha |
+| [`8.5`](chapter_08/notebook_8_5_rag.ipynb) | Retrieval-Augmented Generation | RAG architecture, vector databases, knowledge retrieval | Clinical decision support |
+| [`8.6`](chapter_08/notebook_8_6_summarization.ipynb) | Clinical Summarization | Abstractive summarization, discharge summaries, progress notes | Aisha |
+| [`8.7`](chapter_08/notebook_8_7_hallucination_detection.ipynb) | Hallucination Detection | Factual grounding, citation verification, confidence calibration | All LLM applications |
+| [`8.8`](chapter_08/notebook_8_8_llm_differential_diagnosis.ipynb) | LLM Differential Diagnosis | LLM reasoning, diagnostic support, uncertainty quantification | Clinical decision support |
 
-**Use the files with full descriptive names** (e.g., `*_assessment.ipynb`, `*_handling.ipynb`) as they contain the complete, updated content.
+> **Bonus (optional): 8.9 Medical Scribe with Whisper.** Provided as a generator script (`chapter_08/generate_notebook_8_9.py`) and a summary (`chapter_08/notebook_8_9_summary.md`). It covers speech-to-text clinical transcription with Whisper and a clinically weighted word error rate. It is not counted among the 44 core notebooks.
 
-### Data Requirements
+### Chapter 9: Fairness and Bias
 
-- **Synthetic Data**: Most notebooks use synthetic data generated within the notebook
-- **Public Datasets**: Some notebooks use public datasets (MIMIC, PhysioNet) - instructions provided
-- **No PHI**: All notebooks are HIPAA-compliant with no real patient data
+| Notebook | Title | Key skills | Clinical journey |
+|---|---|---|---|
+| [`9.1`](chapter_09/notebook_9_1_dataset_bias_measurement.ipynb) | Dataset Bias Measurement | Representation analysis, label quality, measurement bias | Foundation for fairness |
+| [`9.2`](chapter_09/notebook_9_2_fairness_metrics.ipynb) | Fairness Metrics | Demographic parity, equalized odds, equal opportunity | All journeys |
+| [`9.3`](chapter_09/notebook_9_3_bias_mitigation.ipynb) | Bias Mitigation | Resampling, SMOTE, fairness constraints, threshold optimization | Priya |
+| [`9.4`](chapter_09/notebook_9_4_priyas_journey.ipynb) | Priya's Journey | Complete fairness case study: biased model, harm analysis, correction | Priya (Journey 5) |
+| [`9.5`](chapter_09/notebook_9_5_intersectional_fairness.ipynb) | Intersectional Fairness | Multi-attribute analysis, compounding bias, targeted mitigation | Vulnerable populations |
 
-### Computational Requirements
+### Chapter 10: Interpretability
 
-- **Lightweight** (Chapters 4-5, 9-11): Run on CPU, minimal RAM
-- **Moderate** (Chapters 7-8): GPU recommended but not required
-- **Heavy** (Chapter 6): GPU strongly recommended for imaging tasks
+| Notebook | Title | Key skills | Clinical journey |
+|---|---|---|---|
+| [`10.1`](chapter_10/notebook_10_1_shap_feature_importance.ipynb) | SHAP Feature Importance | SHAP values, dependence plots, global and local explanations | David |
+| [`10.2`](chapter_10/notebook_10_2_lime_explanations.ipynb) | LIME Explanations | Local surrogate models, tabular, image, and text LIME | All modalities |
+| [`10.3`](chapter_10/notebook_10_3_gradcam_imaging.ipynb) | GradCAM for Imaging | Gradient visualization, attention maps, clinical validation | Elena, Jamal, Priya |
+| [`10.4`](chapter_10/notebook_10_4_counterfactual_explanations.ipynb) | Counterfactual Explanations | What-if analysis, actionable recourse, minimal changes | Clinical decision support |
 
-Google Colab provides free GPU access, making all notebooks accessible without local GPU hardware.
+### Chapter 11: Privacy and Security
 
----
+| Notebook | Title | Key skills | Clinical journey |
+|---|---|---|---|
+| [`11.1`](chapter_11/notebook_11_1_differential_privacy.ipynb) | Differential Privacy | Laplace mechanism, DP-SGD, privacy composition, Opacus | All privacy-sensitive applications |
+| [`11.2`](chapter_11/notebook_11_2_federated_learning.ipynb) | Federated Learning | FedAvg, non-IID handling, secure aggregation | Multi-hospital collaboration |
+| [`11.3`](chapter_11/notebook_11_3_adversarial_robustness.ipynb) | Adversarial Robustness | FGSM and PGD attacks, adversarial training, certified defenses | All deployed models |
 
-## 🆘 Getting Help
+## Requirements
 
-- **Issues**: Report bugs or request clarifications via GitHub Issues
-- **Questions**: Use GitHub Discussions for conceptual questions
-- **Contributions**: Pull requests welcome for improvements or corrections
+Dependencies are pinned in [`requirements.txt`](requirements.txt) in this folder. The stack includes `numpy`, `pandas`, `scikit-learn`, `xgboost`, `torch`, `torchvision`, `scikit-image`, `transformers`, `spacy`, `shap`, `lime`, `opacus`, and `pywavelets`.
 
----
+## About this volume
 
-## 📚 Integration with Text Chapters
+Volume 1 establishes the technical foundation for clinical AI: machine learning principles, healthcare data preparation, evaluation methodology, domain-specific methods for imaging, time series, and natural language processing, and responsible practice covering fairness, interpretability, privacy, and security.
 
-Notebooks are designed to be used **alongside** the text chapters, not as replacements:
+ISBN 978-91-991639-0-1. First Edition, 2026. Authors: Farhad Abtahi and Mehdi Astaraki.
 
-1. **Read the text chapter first** to understand concepts
-2. **Work through the corresponding notebooks** for hands-on practice
-3. **Complete exercises** to reinforce learning
-4. **Refer back to text** for deeper theoretical understanding
-
-The text provides the "why," the notebooks provide the "how."
-
----
-
-## 🔄 Updates and Maintenance
-
-This notebook collection is actively maintained. Check the repository for:
-- Bug fixes
-- Updated dependencies
-- New examples
-- Community contributions
-
-**Last Updated**: 2025-11-05
-**Total Notebooks**: 44 (all with "Open in Colab" badges)
-**Format**: Jupyter Notebook (.ipynb)
-**Status**: ✅ 44 complete and functional
-**License**: See repository for license information
-
----
-
-## 🎊 Notebook Completion Status
-
-### All Notebooks Functional (44/44) ✅
-
-All notebooks are complete with working code, detailed explanations, and visualizations. Ready for immediate use!
-
-**Removed duplicates/placeholders** (Nov 2025):
-- Removed `chapter_04/notebook_4_1_data_quality.ipynb` (older duplicate - use `notebook_4_1_data_quality_assessment.ipynb`)
-- Removed `chapter_04/notebook_4_2_missing_data.ipynb` (older duplicate - use `notebook_4_2_missing_data_handling.ipynb`)
-- Removed `chapter_08/notebook_8_9_medical_scribe.ipynb` (empty placeholder)
-
-### Common Imports Across Notebooks
-- **NumPy, Pandas**: 43/47 notebooks (91%)
-- **Matplotlib, Seaborn**: 43/47 notebooks (91%)
-- **Scikit-learn**: 35/47 notebooks (74%)
-- **PyTorch**: 15/47 notebooks (32%, primarily imaging/NLP)
-- **Transformers**: 8/47 notebooks (17%, NLP chapters)
-
-All dependencies are specified in `notebooks/requirements.txt`.
-
----
-
-**Happy Learning!** 🚀
-
-*These notebooks accompany "AI in Healthcare: Volume 1 - Foundations"*
+Back to the [repository home](https://github.com/farhad-abtahi/healthcareaibook).
