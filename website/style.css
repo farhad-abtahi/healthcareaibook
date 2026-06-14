@@ -12,6 +12,11 @@
   padding: 0;
 }
 
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
 /* ── Brand tokens ────────────────────────────────────────── */
 :root {
   --navy:       #1a2b4a;
@@ -22,7 +27,7 @@
   --cream:      #faf8f4;
   --white:      #ffffff;
   --border:     #e2ddd6;
-  --text:       #1a2b4a;
+  --text:       var(--navy);
   --muted:      #5a6a7e;
 }
 
@@ -72,9 +77,9 @@ body {
 
 .header-meta {
   display: flex;
-  flex-direction: row;
   gap: 1.5rem;
   margin-top: 1.25rem;
+  flex-wrap: wrap;
 }
 
 .header-meta a {
@@ -90,7 +95,6 @@ body {
 /* ── Button legend ───────────────────────────────────────── */
 .legend {
   display: flex;
-  flex-direction: row;
   gap: 0.5rem;
   flex-wrap: wrap;
   padding: 1.25rem 0 0.25rem;
@@ -110,7 +114,6 @@ body {
 
 .volume-header {
   display: flex;
-  flex-direction: row;
   align-items: center;
   gap: 0.75rem;
   margin-bottom: 1.5rem;
@@ -133,6 +136,8 @@ body {
 [data-color="teal"] .volume-mark {
   background: var(--teal);
 }
+
+.volume[data-color="gold"]   .volume-mark { background: var(--gold); }
 
 [data-color="purple"] .volume-mark {
   background: var(--purple);
@@ -168,7 +173,6 @@ body {
 
 .notebook-row {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 0.65rem 1rem;
@@ -188,8 +192,8 @@ body {
 .nb-title {
   font-size: 0.88rem;
   flex: 1;
-  min-width: 180px;
-  font-weight: 450;
+  min-width: 0;
+  font-weight: 500;
 }
 
 .nb-actions {
@@ -231,14 +235,14 @@ body {
 /* Colab */
 .btn-colab {
   background: #fdf6e3;
-  color: #8a6200;
+  color: #6b4c00;
   border-color: #e8cc80;
 }
 
 /* nbviewer */
 .btn-nbviewer {
   background: #e8f5f4;
-  color: #2a7a72;
+  color: var(--teal);
   border-color: #9fd0cb;
 }
 
@@ -255,6 +259,7 @@ body {
   color: #aab0bb;
   border-color: #dedad4;
   cursor: not-allowed;
+  pointer-events: none;
 }
 
 /* ── Site footer ─────────────────────────────────────────── */
@@ -273,6 +278,11 @@ body {
 
 .site-footer a:hover {
   text-decoration: underline;
+}
+
+/* ── Reduced motion ──────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .btn, .notebook-row { transition: none; }
 }
 
 /* ── Responsive ──────────────────────────────────────────── */
