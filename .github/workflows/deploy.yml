@@ -1,0 +1,128 @@
+name: Deploy Notebook Gallery
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install JupyterLite
+        run: |
+          pip install \
+            "jupyterlite-core>=0.4.0,<0.5.0" \
+            "jupyterlite-pyodide-kernel>=0.4.0,<0.5.0"
+
+      - name: Collect compatible notebooks
+        run: |
+          mkdir -p _lite_contents
+
+          # Chapter 4
+          cp "vol 1 notebooks/chapter_04/notebook_4_1_data_quality_assessment.ipynb"  _lite_contents/
+          cp "vol 1 notebooks/chapter_04/notebook_4_2_missing_data_handling.ipynb"    _lite_contents/
+          cp "vol 1 notebooks/chapter_04/notebook_4_3_feature_engineering.ipynb"      _lite_contents/
+          cp "vol 1 notebooks/chapter_04/notebook_4_4_cross_validation.ipynb"         _lite_contents/
+          cp "vol 1 notebooks/chapter_04/notebook_4_5_data_leakage.ipynb"             _lite_contents/
+
+          # Chapter 5
+          cp "vol 1 notebooks/chapter_05/notebook_5_1_classification_metrics.ipynb"   _lite_contents/
+          cp "vol 1 notebooks/chapter_05/notebook_5_2_roc_pr_curves.ipynb"            _lite_contents/
+          cp "vol 1 notebooks/chapter_05/notebook_5_3_cvd_risk_calibration.ipynb"     _lite_contents/
+          cp "vol 1 notebooks/chapter_05/notebook_5_4_regression_metrics.ipynb"       _lite_contents/
+          cp "vol 1 notebooks/chapter_05/notebook_5_5_segmentation_metrics.ipynb"     _lite_contents/
+          cp "vol 1 notebooks/chapter_05/notebook_5_6_fairness_metrics.ipynb"         _lite_contents/
+
+          # Chapter 6
+          cp "vol 1 notebooks/chapter_06/notebook_6_1_cnn_fundamentals.ipynb"                 _lite_contents/
+          cp "vol 1 notebooks/chapter_06/notebook_6_2_melanoma_classification_fairness.ipynb" _lite_contents/
+          cp "vol 1 notebooks/chapter_06/notebook_6_3_preprocessing.ipynb"                    _lite_contents/
+          cp "vol 1 notebooks/chapter_06/notebook_6_4_augmentation.ipynb"                     _lite_contents/
+          cp "vol 1 notebooks/chapter_06/notebook_6_5_lung_nodule_detection.ipynb"            _lite_contents/
+          cp "vol 1 notebooks/chapter_06/notebook_6_6_brain_tumor_segmentation_unet.ipynb"   _lite_contents/
+          cp "vol 1 notebooks/chapter_06/notebook_6_7_gradcam.ipynb"                         _lite_contents/
+
+          # Chapter 7
+          cp "vol 1 notebooks/chapter_07/notebook_7_1_signal_preprocessing.ipynb"         _lite_contents/
+          cp "vol 1 notebooks/chapter_07/notebook_7_2_feature_extraction.ipynb"           _lite_contents/
+          cp "vol 1 notebooks/chapter_07/notebook_7_3_sepsis_prediction_xgboost.ipynb"    _lite_contents/
+          cp "vol 1 notebooks/chapter_07/notebook_7_4_ecg_classification_1d_cnn.ipynb"   _lite_contents/
+          cp "vol 1 notebooks/chapter_07/notebook_7_5_forecasting.ipynb"                  _lite_contents/
+          cp "vol 1 notebooks/chapter_07/notebook_7_6_realtime_processing.ipynb"          _lite_contents/
+
+          # Chapter 8 — only first 3 compatible
+          cp "vol 1 notebooks/chapter_08/notebook_8_1_text_preprocessing.ipynb"  _lite_contents/
+          cp "vol 1 notebooks/chapter_08/notebook_8_2_ner.ipynb"                 _lite_contents/
+          cp "vol 1 notebooks/chapter_08/notebook_8_3_bert_classification.ipynb" _lite_contents/
+
+          # Chapter 9 — 9_3 and 9_4 excluded (imbalanced-learn not in Pyodide)
+          cp "vol 1 notebooks/chapter_09/notebook_9_1_dataset_bias_measurement.ipynb" _lite_contents/
+          cp "vol 1 notebooks/chapter_09/notebook_9_2_fairness_metrics.ipynb"          _lite_contents/
+          cp "vol 1 notebooks/chapter_09/notebook_9_5_intersectional_fairness.ipynb"   _lite_contents/
+
+          # Chapter 10 — only 10_4 compatible (shap/lime/tensorflow excluded)
+          cp "vol 1 notebooks/chapter_10/notebook_10_4_counterfactual_explanations.ipynb" _lite_contents/
+
+          # Chapter 11 — 11_3 excluded (tensorflow)
+          cp "vol 1 notebooks/chapter_11/notebook_11_1_differential_privacy.ipynb" _lite_contents/
+          cp "vol 1 notebooks/chapter_11/notebook_11_2_federated_learning.ipynb"   _lite_contents/
+
+          # Volume 2 — all 5 compatible
+          cp "vol 2 notebooks/notebook_1A_drift_detection.ipynb"  _lite_contents/
+          cp "vol 2 notebooks/notebook_2A_data_poisoning.ipynb"   _lite_contents/
+          cp "vol 2 notebooks/notebook_2B_byzantine_fl.ipynb"     _lite_contents/
+          cp "vol 2 notebooks/notebook_5A_alert_design.ipynb"     _lite_contents/
+          cp "vol 2 notebooks/notebook_6A_success_metrics.ipynb"  _lite_contents/
+
+      - name: Build JupyterLite
+        # base-url must match the GitHub Pages path: /REPO_NAME/lite/
+        # Change to /lite/ if using a custom domain (e.g. aiinhealthcarebook.com)
+        run: |
+          jupyter lite build \
+            --contents _lite_contents/ \
+            --output-dir _site/lite/ \
+            --base-url "/${{ github.event.repository.name }}/lite/"
+
+      - name: Assemble website
+        run: |
+          cp website/index.html     _site/
+          cp website/style.css      _site/
+          cp website/notebooks.json _site/
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site/
+
+  deploy:
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
