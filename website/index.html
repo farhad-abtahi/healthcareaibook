@@ -53,42 +53,64 @@
 
 <script>
 (function () {
-  /* Encode a file path preserving slashes but encoding spaces/special chars */
   function encodePath(path) {
     return path.split('/').map(encodeURIComponent).join('/');
   }
 
+  function escHtml(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  function makeAnchor(href, cls, text, extra) {
+    var a = document.createElement('a');
+    a.href = href;
+    a.className = 'btn ' + cls;
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.textContent = text;
+    if (extra) { Object.keys(extra).forEach(function(k) { a.setAttribute(k, extra[k]); }); }
+    return a;
+  }
+
   function makeRow(nb, repo, branch) {
+    if (!nb.path) { console.warn('Skipping notebook with missing path:', nb.filename); return null; }
+
     var ep = encodePath(nb.path);
     var downloadUrl  = 'https://raw.githubusercontent.com/' + repo + '/' + branch + '/' + ep;
     var colabUrl     = 'https://colab.research.google.com/github/' + repo + '/blob/' + branch + '/' + ep;
     var nbviewerUrl  = 'https://nbviewer.org/github/' + repo + '/blob/' + branch + '/' + ep;
     var liteUrl      = './lite/lab/index.html?path=' + encodeURIComponent(nb.filename);
 
-    var liteBtn = nb.lite
-      ? '<a href="' + liteUrl + '" class="btn btn-lite" target="_blank" rel="noopener">&#9889; JupyterLite</a>'
-      : '<span class="btn btn-disabled" title="Requires packages not installable in-browser">&#9889; JupyterLite</span>';
-
     var row = document.createElement('div');
     row.className = 'notebook-row';
-    row.innerHTML =
-      '<span class="nb-title">' + escHtml(nb.title) + '</span>' +
-      '<div class="nb-actions">' +
-        '<a href="' + downloadUrl + '" class="btn btn-download" download="' + escAttr(nb.filename) + '">&#8595; Download</a>' +
-        '<a href="' + colabUrl + '" class="btn btn-colab" target="_blank" rel="noopener">&#9654; Colab</a>' +
-        '<a href="' + nbviewerUrl + '" class="btn btn-nbviewer" target="_blank" rel="noopener">&#128065; nbviewer</a>' +
-        liteBtn +
-      '</div>';
+
+    var titleSpan = document.createElement('span');
+    titleSpan.className = 'nb-title';
+    titleSpan.textContent = nb.title;
+    row.appendChild(titleSpan);
+
+    var actions = document.createElement('div');
+    actions.className = 'nb-actions';
+
+    actions.appendChild(makeAnchor(downloadUrl, 'btn-download', '↓ Download', null));
+    actions.appendChild(makeAnchor(colabUrl,    'btn-colab',    '▶ Colab',    null));
+    actions.appendChild(makeAnchor(nbviewerUrl, 'btn-nbviewer', '👁 nbviewer', null));
+
+    if (nb.lite === true) {
+      actions.appendChild(makeAnchor(liteUrl, 'btn-lite', '⚡ JupyterLite', null));
+    } else {
+      var span = document.createElement('span');
+      span.className = 'btn btn-disabled';
+      span.title = 'Requires packages not installable in-browser';
+      span.textContent = '⚡ JupyterLite';
+      actions.appendChild(span);
+    }
+
+    row.appendChild(actions);
     return row;
   }
 
-  function escHtml(s) {
-    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-  }
-
-  function escAttr(s) {
-    return s.replace(/"/g, '&quot;');
-  }
+  var catalogEl = document.getElementById('catalog');
 
   fetch('./notebooks.json')
     .then(function (r) {
@@ -96,6 +118,9 @@
       return r.json();
     })
     .then(function (catalog) {
+      if (!catalog.repo || !catalog.branch) throw new Error('Malformed catalog: missing repo or branch');
+      if (!Array.isArray(catalog.volumes)) throw new Error('Malformed catalog: missing volumes array');
+
       var repo   = catalog.repo;
       var branch = catalog.branch;
       var frag   = document.createDocumentFragment();
@@ -107,19 +132,32 @@
 
         var volHeader = document.createElement('div');
         volHeader.className = 'volume-header';
-        volHeader.innerHTML = '<span class="volume-mark" aria-hidden="true"></span><h2>' + escHtml(vol.title) + '</h2>';
+
+        var mark = document.createElement('span');
+        mark.className = 'volume-mark';
+        mark.setAttribute('aria-hidden', 'true');
+
+        var h2 = document.createElement('h2');
+        h2.textContent = vol.title;
+
+        volHeader.appendChild(mark);
+        volHeader.appendChild(h2);
         volEl.appendChild(volHeader);
 
         vol.chapters.forEach(function (ch) {
           var chEl = document.createElement('div');
           chEl.className = 'chapter';
-          chEl.innerHTML = '<h3>' + escHtml(ch.title) + '</h3>';
+
+          var h3 = document.createElement('h3');
+          h3.textContent = ch.title;
+          chEl.appendChild(h3);
 
           var list = document.createElement('div');
           list.className = 'notebook-list';
 
           ch.notebooks.forEach(function (nb) {
-            list.appendChild(makeRow(nb, repo, branch));
+            var row = makeRow(nb, repo, branch);
+            if (row) list.appendChild(row);
           });
 
           chEl.appendChild(list);
@@ -129,13 +167,12 @@
         frag.appendChild(volEl);
       });
 
-      var catalogEl = document.getElementById('catalog');
       catalogEl.innerHTML = '';
       catalogEl.appendChild(frag);
     })
     .catch(function (err) {
-      document.getElementById('catalog').innerHTML =
-        '<p style="padding:2rem 0;color:#c0392b;">Failed to load notebook catalog: ' + escHtml(err.message) + '</p>';
+      var msg = err && err.message ? err.message : String(err || 'Unknown error');
+      catalogEl.innerHTML = '<p style="padding:2rem 0;color:#c0392b;">Failed to load notebook catalog: ' + escHtml(msg) + '</p>';
     });
 }());
 </script>
