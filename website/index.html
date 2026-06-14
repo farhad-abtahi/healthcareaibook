@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notebooks — Artificial Intelligence in Healthcare</title>
+  <meta name="description" content="Companion Jupyter notebooks for the AI in Healthcare textbook series by Farhad Abtahi and Mehdi Astaraki.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <p class="eyebrow">Companion Notebooks</p>
+    <h1>Artificial Intelligence in Healthcare</h1>
+    <p class="subtitle">Hands-on Jupyter notebooks for the three-volume textbook series</p>
+    <nav class="header-meta">
+      <a href="https://aiinhealthcarebook.com" target="_blank" rel="noopener">&#8594; Book website</a>
+      <a href="https://github.com/farhad-abtahi/healthcareaibook" target="_blank" rel="noopener">&#8594; GitHub repository</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <!-- Legend: show what each button type does -->
+    <div class="legend">
+      <span class="legend-label">Buttons:</span>
+      <span class="btn btn-download">&#8595; Download</span>
+      <span class="btn btn-colab">&#9654; Google Colab</span>
+      <span class="btn btn-nbviewer">&#128065; nbviewer</span>
+      <span class="btn btn-lite">&#9889; JupyterLite</span>
+      <span class="btn btn-disabled" title="Requires packages not available in-browser">&#9889; JupyterLite (needs install)</span>
+    </div>
+
+    <div id="catalog">
+      <p style="padding:2rem 0; color:#5a6a7e;">Loading notebooks&hellip;</p>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>
+      Companion code for <em>Artificial Intelligence in Healthcare</em> by Farhad Abtahi and Mehdi Astaraki.
+      &nbsp;&middot;&nbsp;
+      <a href="https://aiinhealthcarebook.com">aiinhealthcarebook.com</a>
+      &nbsp;&middot;&nbsp;
+      <a href="https://github.com/farhad-abtahi/healthcareaibook">GitHub</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  /* Encode a file path preserving slashes but encoding spaces/special chars */
+  function encodePath(path) {
+    return path.split('/').map(encodeURIComponent).join('/');
+  }
+
+  function makeRow(nb, repo, branch) {
+    var ep = encodePath(nb.path);
+    var downloadUrl  = 'https://raw.githubusercontent.com/' + repo + '/' + branch + '/' + ep;
+    var colabUrl     = 'https://colab.research.google.com/github/' + repo + '/blob/' + branch + '/' + ep;
+    var nbviewerUrl  = 'https://nbviewer.org/github/' + repo + '/blob/' + branch + '/' + ep;
+    var liteUrl      = './lite/lab/index.html?path=' + encodeURIComponent(nb.filename);
+
+    var liteBtn = nb.lite
+      ? '<a href="' + liteUrl + '" class="btn btn-lite" target="_blank" rel="noopener">&#9889; JupyterLite</a>'
+      : '<span class="btn btn-disabled" title="Requires packages not installable in-browser">&#9889; JupyterLite</span>';
+
+    var row = document.createElement('div');
+    row.className = 'notebook-row';
+    row.innerHTML =
+      '<span class="nb-title">' + escHtml(nb.title) + '</span>' +
+      '<div class="nb-actions">' +
+        '<a href="' + downloadUrl + '" class="btn btn-download" download="' + escAttr(nb.filename) + '">&#8595; Download</a>' +
+        '<a href="' + colabUrl + '" class="btn btn-colab" target="_blank" rel="noopener">&#9654; Colab</a>' +
+        '<a href="' + nbviewerUrl + '" class="btn btn-nbviewer" target="_blank" rel="noopener">&#128065; nbviewer</a>' +
+        liteBtn +
+      '</div>';
+    return row;
+  }
+
+  function escHtml(s) {
+    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  function escAttr(s) {
+    return s.replace(/"/g, '&quot;');
+  }
+
+  fetch('./notebooks.json')
+    .then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    })
+    .then(function (catalog) {
+      var repo   = catalog.repo;
+      var branch = catalog.branch;
+      var frag   = document.createDocumentFragment();
+
+      catalog.volumes.forEach(function (vol) {
+        var volEl = document.createElement('section');
+        volEl.className = 'volume';
+        volEl.setAttribute('data-color', vol.color || 'navy');
+
+        var volHeader = document.createElement('div');
+        volHeader.className = 'volume-header';
+        volHeader.innerHTML = '<span class="volume-mark" aria-hidden="true"></span><h2>' + escHtml(vol.title) + '</h2>';
+        volEl.appendChild(volHeader);
+
+        vol.chapters.forEach(function (ch) {
+          var chEl = document.createElement('div');
+          chEl.className = 'chapter';
+          chEl.innerHTML = '<h3>' + escHtml(ch.title) + '</h3>';
+
+          var list = document.createElement('div');
+          list.className = 'notebook-list';
+
+          ch.notebooks.forEach(function (nb) {
+            list.appendChild(makeRow(nb, repo, branch));
+          });
+
+          chEl.appendChild(list);
+          volEl.appendChild(chEl);
+        });
+
+        frag.appendChild(volEl);
+      });
+
+      var catalogEl = document.getElementById('catalog');
+      catalogEl.innerHTML = '';
+      catalogEl.appendChild(frag);
+    })
+    .catch(function (err) {
+      document.getElementById('catalog').innerHTML =
+        '<p style="padding:2rem 0;color:#c0392b;">Failed to load notebook catalog: ' + escHtml(err.message) + '</p>';
+    });
+}());
+</script>
+
+</body>
+</html>
