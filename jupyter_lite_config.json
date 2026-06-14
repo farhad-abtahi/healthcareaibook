@@ -1,0 +1,10 @@
+{
+  "PyodideAddon": {
+    "preinstall_packages": [
+      "seaborn",
+      "scikit-image",
+      "xgboost",
+      "PyWavelets"
+    ]
+  }
+}
