@@ -1,0 +1,368 @@
+{
+  "repo": "farhad-abtahi/healthcareaibook",
+  "branch": "main",
+  "volumes": [
+    {
+      "id": "vol1",
+      "title": "Volume 1",
+      "color": "navy",
+      "chapters": [
+        {
+          "id": "ch4",
+          "title": "Chapter 4: Data Preparation",
+          "notebooks": [
+            {
+              "filename": "notebook_4_1_data_quality_assessment.ipynb",
+              "path": "vol 1 notebooks/chapter_04/notebook_4_1_data_quality_assessment.ipynb",
+              "title": "4.1  Data Quality Assessment",
+              "lite": true
+            },
+            {
+              "filename": "notebook_4_2_missing_data_handling.ipynb",
+              "path": "vol 1 notebooks/chapter_04/notebook_4_2_missing_data_handling.ipynb",
+              "title": "4.2  Missing Data Handling",
+              "lite": true
+            },
+            {
+              "filename": "notebook_4_3_feature_engineering.ipynb",
+              "path": "vol 1 notebooks/chapter_04/notebook_4_3_feature_engineering.ipynb",
+              "title": "4.3  Feature Engineering",
+              "lite": true
+            },
+            {
+              "filename": "notebook_4_4_cross_validation.ipynb",
+              "path": "vol 1 notebooks/chapter_04/notebook_4_4_cross_validation.ipynb",
+              "title": "4.4  Cross-Validation Strategies",
+              "lite": true
+            },
+            {
+              "filename": "notebook_4_5_data_leakage.ipynb",
+              "path": "vol 1 notebooks/chapter_04/notebook_4_5_data_leakage.ipynb",
+              "title": "4.5  Data Leakage Detection",
+              "lite": true
+            }
+          ]
+        },
+        {
+          "id": "ch5",
+          "title": "Chapter 5: Evaluation Metrics",
+          "notebooks": [
+            {
+              "filename": "notebook_5_1_classification_metrics.ipynb",
+              "path": "vol 1 notebooks/chapter_05/notebook_5_1_classification_metrics.ipynb",
+              "title": "5.1  Classification Metrics",
+              "lite": true
+            },
+            {
+              "filename": "notebook_5_2_roc_pr_curves.ipynb",
+              "path": "vol 1 notebooks/chapter_05/notebook_5_2_roc_pr_curves.ipynb",
+              "title": "5.2  ROC and PR Curves",
+              "lite": true
+            },
+            {
+              "filename": "notebook_5_3_cvd_risk_calibration.ipynb",
+              "path": "vol 1 notebooks/chapter_05/notebook_5_3_cvd_risk_calibration.ipynb",
+              "title": "5.3  Calibration Analysis (CVD Risk)",
+              "lite": true
+            },
+            {
+              "filename": "notebook_5_4_regression_metrics.ipynb",
+              "path": "vol 1 notebooks/chapter_05/notebook_5_4_regression_metrics.ipynb",
+              "title": "5.4  Regression Metrics",
+              "lite": true
+            },
+            {
+              "filename": "notebook_5_5_segmentation_metrics.ipynb",
+              "path": "vol 1 notebooks/chapter_05/notebook_5_5_segmentation_metrics.ipynb",
+              "title": "5.5  Segmentation Metrics",
+              "lite": true
+            },
+            {
+              "filename": "notebook_5_6_fairness_metrics.ipynb",
+              "path": "vol 1 notebooks/chapter_05/notebook_5_6_fairness_metrics.ipynb",
+              "title": "5.6  Fairness Metrics Preview",
+              "lite": true
+            }
+          ]
+        },
+        {
+          "id": "ch6",
+          "title": "Chapter 6: Medical Imaging and Computer Vision",
+          "notebooks": [
+            {
+              "filename": "notebook_6_1_cnn_fundamentals.ipynb",
+              "path": "vol 1 notebooks/chapter_06/notebook_6_1_cnn_fundamentals.ipynb",
+              "title": "6.1  CNN Fundamentals",
+              "lite": true
+            },
+            {
+              "filename": "notebook_6_2_melanoma_classification_fairness.ipynb",
+              "path": "vol 1 notebooks/chapter_06/notebook_6_2_melanoma_classification_fairness.ipynb",
+              "title": "6.2  Melanoma Classification & Fairness",
+              "lite": true
+            },
+            {
+              "filename": "notebook_6_3_preprocessing.ipynb",
+              "path": "vol 1 notebooks/chapter_06/notebook_6_3_preprocessing.ipynb",
+              "title": "6.3  Image Preprocessing",
+              "lite": true
+            },
+            {
+              "filename": "notebook_6_4_augmentation.ipynb",
+              "path": "vol 1 notebooks/chapter_06/notebook_6_4_augmentation.ipynb",
+              "title": "6.4  Data Augmentation",
+              "lite": true
+            },
+            {
+              "filename": "notebook_6_5_lung_nodule_detection.ipynb",
+              "path": "vol 1 notebooks/chapter_06/notebook_6_5_lung_nodule_detection.ipynb",
+              "title": "6.5  Lung Nodule Detection",
+              "lite": true
+            },
+            {
+              "filename": "notebook_6_6_brain_tumor_segmentation_unet.ipynb",
+              "path": "vol 1 notebooks/chapter_06/notebook_6_6_brain_tumor_segmentation_unet.ipynb",
+              "title": "6.6  Brain Tumor Segmentation (U-Net)",
+              "lite": true
+            },
+            {
+              "filename": "notebook_6_7_gradcam.ipynb",
+              "path": "vol 1 notebooks/chapter_06/notebook_6_7_gradcam.ipynb",
+              "title": "6.7  Grad-CAM Visualization",
+              "lite": true
+            }
+          ]
+        },
+        {
+          "id": "ch7",
+          "title": "Chapter 7: Time Series and Signal Processing",
+          "notebooks": [
+            {
+              "filename": "notebook_7_1_signal_preprocessing.ipynb",
+              "path": "vol 1 notebooks/chapter_07/notebook_7_1_signal_preprocessing.ipynb",
+              "title": "7.1  Signal Preprocessing",
+              "lite": true
+            },
+            {
+              "filename": "notebook_7_2_feature_extraction.ipynb",
+              "path": "vol 1 notebooks/chapter_07/notebook_7_2_feature_extraction.ipynb",
+              "title": "7.2  Feature Extraction",
+              "lite": true
+            },
+            {
+              "filename": "notebook_7_3_sepsis_prediction_xgboost.ipynb",
+              "path": "vol 1 notebooks/chapter_07/notebook_7_3_sepsis_prediction_xgboost.ipynb",
+              "title": "7.3  Sepsis Prediction (XGBoost)",
+              "lite": true
+            },
+            {
+              "filename": "notebook_7_4_ecg_classification_1d_cnn.ipynb",
+              "path": "vol 1 notebooks/chapter_07/notebook_7_4_ecg_classification_1d_cnn.ipynb",
+              "title": "7.4  ECG Classification (1D CNN)",
+              "lite": true
+            },
+            {
+              "filename": "notebook_7_5_forecasting.ipynb",
+              "path": "vol 1 notebooks/chapter_07/notebook_7_5_forecasting.ipynb",
+              "title": "7.5  Time-Series Forecasting",
+              "lite": true
+            },
+            {
+              "filename": "notebook_7_6_realtime_processing.ipynb",
+              "path": "vol 1 notebooks/chapter_07/notebook_7_6_realtime_processing.ipynb",
+              "title": "7.6  Real-Time Processing",
+              "lite": true
+            }
+          ]
+        },
+        {
+          "id": "ch8",
+          "title": "Chapter 8: Clinical NLP and LLMs",
+          "notebooks": [
+            {
+              "filename": "notebook_8_1_text_preprocessing.ipynb",
+              "path": "vol 1 notebooks/chapter_08/notebook_8_1_text_preprocessing.ipynb",
+              "title": "8.1  Text Preprocessing",
+              "lite": true
+            },
+            {
+              "filename": "notebook_8_2_ner.ipynb",
+              "path": "vol 1 notebooks/chapter_08/notebook_8_2_ner.ipynb",
+              "title": "8.2  Named Entity Recognition",
+              "lite": true
+            },
+            {
+              "filename": "notebook_8_3_bert_classification.ipynb",
+              "path": "vol 1 notebooks/chapter_08/notebook_8_3_bert_classification.ipynb",
+              "title": "8.3  BERT Text Classification",
+              "lite": true
+            },
+            {
+              "filename": "notebook_8_4_llm_prompting.ipynb",
+              "path": "vol 1 notebooks/chapter_08/notebook_8_4_llm_prompting.ipynb",
+              "title": "8.4  LLM Prompting",
+              "lite": false
+            },
+            {
+              "filename": "notebook_8_5_rag.ipynb",
+              "path": "vol 1 notebooks/chapter_08/notebook_8_5_rag.ipynb",
+              "title": "8.5  Retrieval-Augmented Generation",
+              "lite": false
+            },
+            {
+              "filename": "notebook_8_6_summarization.ipynb",
+              "path": "vol 1 notebooks/chapter_08/notebook_8_6_summarization.ipynb",
+              "title": "8.6  Clinical Text Summarization",
+              "lite": false
+            },
+            {
+              "filename": "notebook_8_7_hallucination_detection.ipynb",
+              "path": "vol 1 notebooks/chapter_08/notebook_8_7_hallucination_detection.ipynb",
+              "title": "8.7  Hallucination Detection",
+              "lite": false
+            },
+            {
+              "filename": "notebook_8_8_llm_differential_diagnosis.ipynb",
+              "path": "vol 1 notebooks/chapter_08/notebook_8_8_llm_differential_diagnosis.ipynb",
+              "title": "8.8  LLM Differential Diagnosis",
+              "lite": false
+            }
+          ]
+        },
+        {
+          "id": "ch9",
+          "title": "Chapter 9: Fairness and Bias",
+          "notebooks": [
+            {
+              "filename": "notebook_9_1_dataset_bias_measurement.ipynb",
+              "path": "vol 1 notebooks/chapter_09/notebook_9_1_dataset_bias_measurement.ipynb",
+              "title": "9.1  Dataset Bias Measurement",
+              "lite": true
+            },
+            {
+              "filename": "notebook_9_2_fairness_metrics.ipynb",
+              "path": "vol 1 notebooks/chapter_09/notebook_9_2_fairness_metrics.ipynb",
+              "title": "9.2  Fairness Metrics",
+              "lite": true
+            },
+            {
+              "filename": "notebook_9_3_bias_mitigation.ipynb",
+              "path": "vol 1 notebooks/chapter_09/notebook_9_3_bias_mitigation.ipynb",
+              "title": "9.3  Bias Mitigation",
+              "lite": false
+            },
+            {
+              "filename": "notebook_9_4_priyas_journey.ipynb",
+              "path": "vol 1 notebooks/chapter_09/notebook_9_4_priyas_journey.ipynb",
+              "title": "9.4  Priya's Journey",
+              "lite": false
+            },
+            {
+              "filename": "notebook_9_5_intersectional_fairness.ipynb",
+              "path": "vol 1 notebooks/chapter_09/notebook_9_5_intersectional_fairness.ipynb",
+              "title": "9.5  Intersectional Fairness",
+              "lite": true
+            }
+          ]
+        },
+        {
+          "id": "ch10",
+          "title": "Chapter 10: Interpretability",
+          "notebooks": [
+            {
+              "filename": "notebook_10_1_shap_feature_importance.ipynb",
+              "path": "vol 1 notebooks/chapter_10/notebook_10_1_shap_feature_importance.ipynb",
+              "title": "10.1 SHAP Feature Importance",
+              "lite": false
+            },
+            {
+              "filename": "notebook_10_2_lime_explanations.ipynb",
+              "path": "vol 1 notebooks/chapter_10/notebook_10_2_lime_explanations.ipynb",
+              "title": "10.2 LIME Explanations",
+              "lite": false
+            },
+            {
+              "filename": "notebook_10_3_gradcam_imaging.ipynb",
+              "path": "vol 1 notebooks/chapter_10/notebook_10_3_gradcam_imaging.ipynb",
+              "title": "10.3 Grad-CAM for Imaging",
+              "lite": false
+            },
+            {
+              "filename": "notebook_10_4_counterfactual_explanations.ipynb",
+              "path": "vol 1 notebooks/chapter_10/notebook_10_4_counterfactual_explanations.ipynb",
+              "title": "10.4 Counterfactual Explanations",
+              "lite": true
+            }
+          ]
+        },
+        {
+          "id": "ch11",
+          "title": "Chapter 11: Privacy and Security",
+          "notebooks": [
+            {
+              "filename": "notebook_11_1_differential_privacy.ipynb",
+              "path": "vol 1 notebooks/chapter_11/notebook_11_1_differential_privacy.ipynb",
+              "title": "11.1 Differential Privacy",
+              "lite": true
+            },
+            {
+              "filename": "notebook_11_2_federated_learning.ipynb",
+              "path": "vol 1 notebooks/chapter_11/notebook_11_2_federated_learning.ipynb",
+              "title": "11.2 Federated Learning",
+              "lite": true
+            },
+            {
+              "filename": "notebook_11_3_adversarial_robustness.ipynb",
+              "path": "vol 1 notebooks/chapter_11/notebook_11_3_adversarial_robustness.ipynb",
+              "title": "11.3 Adversarial Robustness",
+              "lite": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vol2",
+      "title": "Volume 2",
+      "color": "teal",
+      "chapters": [
+        {
+          "id": "vol2-notebooks",
+          "title": "Notebooks",
+          "notebooks": [
+            {
+              "filename": "notebook_1A_drift_detection.ipynb",
+              "path": "vol 2 notebooks/notebook_1A_drift_detection.ipynb",
+              "title": "1A  Drift Detection",
+              "lite": true
+            },
+            {
+              "filename": "notebook_2A_data_poisoning.ipynb",
+              "path": "vol 2 notebooks/notebook_2A_data_poisoning.ipynb",
+              "title": "2A  Data Poisoning",
+              "lite": true
+            },
+            {
+              "filename": "notebook_2B_byzantine_fl.ipynb",
+              "path": "vol 2 notebooks/notebook_2B_byzantine_fl.ipynb",
+              "title": "2B  Byzantine Federated Learning",
+              "lite": true
+            },
+            {
+              "filename": "notebook_5A_alert_design.ipynb",
+              "path": "vol 2 notebooks/notebook_5A_alert_design.ipynb",
+              "title": "5A  Alert Design",
+              "lite": true
+            },
+            {
+              "filename": "notebook_6A_success_metrics.ipynb",
+              "path": "vol 2 notebooks/notebook_6A_success_metrics.ipynb",
+              "title": "6A  Success Metrics",
+              "lite": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
