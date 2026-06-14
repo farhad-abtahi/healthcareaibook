@@ -1,0 +1,95 @@
+name: Execute Notebooks
+
+on:
+  workflow_dispatch:   # run manually from the Actions tab
+
+permissions:
+  contents: write      # needed to push the executed notebooks back
+
+jobs:
+  execute:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+
+    env:
+      MPLBACKEND: Agg        # headless matplotlib (no display on CI)
+      TF_CPP_MIN_LOG_LEVEL: "3"  # suppress TF info/warning noise
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          # Pin numpy<2 first — TF, skimage, pywt all require it
+          pip install "numpy<2"
+          pip install \
+            pandas matplotlib seaborn scipy \
+            scikit-learn scikit-image xgboost PyWavelets \
+            statsmodels networkx \
+            shap lime imbalanced-learn \
+            tensorflow opencv-python-headless transformers \
+            Pillow jupyter nbconvert ipykernel
+
+      - name: Execute notebooks
+        run: |
+          set +e   # don't stop on first failure — log and continue
+
+          # Notebooks that require live API keys — skip
+          SKIP="notebook_8_4 notebook_8_5 notebook_8_6 notebook_8_7 notebook_8_8"
+
+          # Notebooks with known Keras-3 / shape bugs (already have partial outputs)
+          SKIP="$SKIP notebook_10_3 notebook_11_3"
+
+          run_nb() {
+            local nb="$1"
+            local base
+            base=$(basename "$nb" .ipynb)
+
+            for pat in $SKIP; do
+              if [[ "$base" == *"$pat"* ]]; then
+                echo "SKIP: $nb"
+                return
+              fi
+            done
+
+            echo "RUN:  $nb"
+            jupyter nbconvert \
+              --to notebook --execute --inplace \
+              --ExecutePreprocessor.timeout=900 \
+              "$nb" \
+              && echo "OK:   $nb" \
+              || echo "FAIL: $nb"
+          }
+
+          # Vol 1 — execute in chapter order
+          for nb in "vol 1 notebooks"/chapter_04/*.ipynb \
+                    "vol 1 notebooks"/chapter_05/*.ipynb \
+                    "vol 1 notebooks"/chapter_06/*.ipynb \
+                    "vol 1 notebooks"/chapter_07/*.ipynb \
+                    "vol 1 notebooks"/chapter_08/*.ipynb \
+                    "vol 1 notebooks"/chapter_09/*.ipynb \
+                    "vol 1 notebooks"/chapter_10/*.ipynb \
+                    "vol 1 notebooks"/chapter_11/*.ipynb; do
+            run_nb "$nb"
+          done
+
+          # Vol 2
+          for nb in "vol 2 notebooks"/*.ipynb; do
+            run_nb "$nb"
+          done
+
+      - name: Commit outputs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add "vol 1 notebooks/" "vol 2 notebooks/"
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: save notebook execution outputs"
+            git push
+          else
+            echo "No changes — notebooks already up to date"
+          fi
