@@ -1,0 +1,17 @@
+# AI planning and design docs
+docs/superpowers/
+
+# macOS
+.DS_Store
+
+# Python / Jupyter
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+_lite_contents/
+_site/
+
+# Virtual environments
+.venv/
+venv/
+env/
