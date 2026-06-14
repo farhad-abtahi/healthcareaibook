@@ -24,8 +24,6 @@ jobs:
 
       - name: Install dependencies
         run: |
-          # Pin numpy<2 first — TF, skimage, pywt all require it
-          pip install "numpy<2"
           pip install \
             pandas matplotlib seaborn scipy \
             scikit-learn scikit-image xgboost PyWavelets \
