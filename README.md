@@ -5,6 +5,7 @@
 This repository holds the companion Jupyter notebooks, exercises, and governance templates for the **Artificial Intelligence in Healthcare** series, a graduate-level set of textbooks that moves from how clinical AI works, to how it reaches patients safely, to how it scales across specialized contexts.
 
 - Companion website: [aiinhealthcarebook.com](https://aiinhealthcarebook.com)
+- **Notebook gallery: [farhad-abtahi.github.io/healthcareaibook](https://farhad-abtahi.github.io/healthcareaibook/)** — browse, open in Colab, nbviewer, or JupyterLite
 - Volume 1 on Amazon: ISBN 978-91-991639-0-1
 - Course adoption: Karolinska Institutet and the University of Bern (MSc in AI in Medicine)
 
