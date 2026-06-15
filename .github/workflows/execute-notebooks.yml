@@ -87,6 +87,7 @@ jobs:
           git add "vol 1 notebooks/" "vol 2 notebooks/"
           if ! git diff --cached --quiet; then
             git commit -m "chore: save notebook execution outputs"
+            git pull --rebase origin main
             git push
           else
             echo "No changes — notebooks already up to date"
