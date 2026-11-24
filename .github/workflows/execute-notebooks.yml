@@ -41,7 +41,7 @@ jobs:
           # so they are executed here; their live-LLM cells skip when OPENROUTER_API_KEY is unset.
 
           # Notebooks with known Keras-3 / shape bugs (already have partial outputs)
-          SKIP="notebook_10_3 notebook_11_3"
+          SKIP="notebook_11_3"
 
 
           run_nb() {
