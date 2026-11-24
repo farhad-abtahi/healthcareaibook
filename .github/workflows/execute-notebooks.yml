@@ -5,6 +5,7 @@ on:
 
 permissions:
   contents: write      # needed to push the executed notebooks back
+  actions: write       # needed to trigger the gallery deploy afterwards
 
 jobs:
   execute:
@@ -99,6 +100,12 @@ jobs:
           else
             echo "No changes — notebooks already up to date"
           fi
+
+      - name: Redeploy gallery with the fresh outputs
+        # A push made with GITHUB_TOKEN does not trigger deploy.yml, so dispatch it explicitly.
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --ref "${{ github.ref_name }}"
 
       - name: Fail if any notebook failed
         run: |

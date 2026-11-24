@@ -104,8 +104,19 @@ function render(){
     + (currentTab !== "all" ? ` · ${chTitle[currentTab] || ""}` : "");
 }
 
+function validate(d){
+  const id = /^[A-Za-z0-9._\/-]+$/;
+  if (!id.test(d.repo) || !id.test(d.branch)) throw new Error("bad repo/branch");
+  if (d.book_url && !/^https:\/\//.test(d.book_url)) d.book_url = null;
+  for (const nb of d.notebooks) {
+    if (!["full", "colab"].includes(nb.lite)) nb.lite = "colab";
+    if (!id.test(nb.slug)) throw new Error("bad slug " + nb.slug);
+  }
+  return d;
+}
+
 fetch("notebooks.json").then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); }).then(d => {
-  DATA = d;
+  DATA = validate(d);
   if (!DATA.chapters.some(c => c.id === currentTab)) currentTab = "all";
   const gh = `https://github.com/${d.repo}`;
   document.getElementById("topLinks").innerHTML =

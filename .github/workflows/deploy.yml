@@ -29,11 +29,11 @@ jobs:
 
       - name: Install JupyterLite
         # jupyterlite-core <0.5 opens these notebooks blank (cell sources fail to load);
-        # 0.6+ works (tested with 0.8.x, same as the CM2013 gallery).
+        # 0.8.x is tested (same as the CM2013 gallery); bump deliberately after testing.
         run: |
           pip install \
-            "jupyterlite-core>=0.6" \
-            "jupyterlite-pyodide-kernel>=0.6" \
+            "jupyterlite-core>=0.8,<0.9" \
+            "jupyterlite-pyodide-kernel>=0.8,<0.9" \
             "jupyter_server" \
             nbconvert
 
