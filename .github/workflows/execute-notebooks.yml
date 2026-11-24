@@ -59,6 +59,7 @@ jobs:
             jupyter nbconvert \
               --to notebook --execute --inplace \
               --ExecutePreprocessor.timeout=900 \
+              --ExecutePreprocessor.record_timing=False \
               "$nb" \
               && echo "OK:   $nb" \
               || { echo "FAIL: $nb"; FAILED="$FAILED\n  $nb"; }
