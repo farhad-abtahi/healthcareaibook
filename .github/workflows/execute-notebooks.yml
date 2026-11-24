@@ -40,8 +40,7 @@ jobs:
           # Ch 8 LLM notebooks (8.4-8.8) run without an API key using simulated responses,
           # so they are executed here; their live-LLM cells skip when OPENROUTER_API_KEY is unset.
 
-          # Notebooks with known Keras-3 / shape bugs (already have partial outputs)
-          SKIP="notebook_11_3"
+          SKIP=""   # all notebooks run offline now
 
 
           run_nb() {
