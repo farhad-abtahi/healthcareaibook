@@ -42,8 +42,6 @@ jobs:
           # Notebooks with known Keras-3 / shape bugs (already have partial outputs)
           SKIP="notebook_10_3 notebook_11_3"
 
-          # notebook_10_4 generates 693 MB of outputs — exceeds GitHub's 100 MB file limit
-          SKIP="$SKIP notebook_10_4"
 
           run_nb() {
             local nb="$1"
