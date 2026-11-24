@@ -1,368 +1,987 @@
 {
   "repo": "farhad-abtahi/healthcareaibook",
   "branch": "main",
-  "volumes": [
+  "book_title": "Artificial Intelligence in Healthcare",
+  "book_subtitle": "Hands-on companion notebooks for the three-volume textbook series",
+  "book_url": "https://aiinhealthcarebook.com",
+  "authors": "Farhad Abtahi and Mehdi Astaraki",
+  "chapters": [
     {
-      "id": "vol1",
-      "title": "Volume 1",
-      "color": "navy",
-      "chapters": [
-        {
-          "id": "ch4",
-          "title": "Chapter 4: Data Preparation",
-          "notebooks": [
-            {
-              "filename": "notebook_4_1_data_quality_assessment.ipynb",
-              "path": "vol 1 notebooks/chapter_04/notebook_4_1_data_quality_assessment.ipynb",
-              "title": "4.1 Data Quality Assessment",
-              "lite": true
-            },
-            {
-              "filename": "notebook_4_2_missing_data_handling.ipynb",
-              "path": "vol 1 notebooks/chapter_04/notebook_4_2_missing_data_handling.ipynb",
-              "title": "4.2 Missing Data Handling",
-              "lite": true
-            },
-            {
-              "filename": "notebook_4_3_feature_engineering.ipynb",
-              "path": "vol 1 notebooks/chapter_04/notebook_4_3_feature_engineering.ipynb",
-              "title": "4.3 Feature Engineering",
-              "lite": true
-            },
-            {
-              "filename": "notebook_4_4_cross_validation.ipynb",
-              "path": "vol 1 notebooks/chapter_04/notebook_4_4_cross_validation.ipynb",
-              "title": "4.4 Cross-Validation Strategies",
-              "lite": true
-            },
-            {
-              "filename": "notebook_4_5_data_leakage.ipynb",
-              "path": "vol 1 notebooks/chapter_04/notebook_4_5_data_leakage.ipynb",
-              "title": "4.5 Data Leakage Detection",
-              "lite": true
-            }
-          ]
-        },
-        {
-          "id": "ch5",
-          "title": "Chapter 5: Evaluation Metrics",
-          "notebooks": [
-            {
-              "filename": "notebook_5_1_classification_metrics.ipynb",
-              "path": "vol 1 notebooks/chapter_05/notebook_5_1_classification_metrics.ipynb",
-              "title": "5.1 Classification Metrics",
-              "lite": true
-            },
-            {
-              "filename": "notebook_5_2_roc_pr_curves.ipynb",
-              "path": "vol 1 notebooks/chapter_05/notebook_5_2_roc_pr_curves.ipynb",
-              "title": "5.2 ROC and PR Curves",
-              "lite": true
-            },
-            {
-              "filename": "notebook_5_3_cvd_risk_calibration.ipynb",
-              "path": "vol 1 notebooks/chapter_05/notebook_5_3_cvd_risk_calibration.ipynb",
-              "title": "5.3 Calibration Analysis (CVD Risk)",
-              "lite": true
-            },
-            {
-              "filename": "notebook_5_4_regression_metrics.ipynb",
-              "path": "vol 1 notebooks/chapter_05/notebook_5_4_regression_metrics.ipynb",
-              "title": "5.4 Regression Metrics",
-              "lite": true
-            },
-            {
-              "filename": "notebook_5_5_segmentation_metrics.ipynb",
-              "path": "vol 1 notebooks/chapter_05/notebook_5_5_segmentation_metrics.ipynb",
-              "title": "5.5 Segmentation Metrics",
-              "lite": true
-            },
-            {
-              "filename": "notebook_5_6_fairness_metrics.ipynb",
-              "path": "vol 1 notebooks/chapter_05/notebook_5_6_fairness_metrics.ipynb",
-              "title": "5.6 Fairness Metrics Preview",
-              "lite": true
-            }
-          ]
-        },
-        {
-          "id": "ch6",
-          "title": "Chapter 6: Medical Imaging and Computer Vision",
-          "notebooks": [
-            {
-              "filename": "notebook_6_1_cnn_fundamentals.ipynb",
-              "path": "vol 1 notebooks/chapter_06/notebook_6_1_cnn_fundamentals.ipynb",
-              "title": "6.1 CNN Fundamentals",
-              "lite": true
-            },
-            {
-              "filename": "notebook_6_2_melanoma_classification_fairness.ipynb",
-              "path": "vol 1 notebooks/chapter_06/notebook_6_2_melanoma_classification_fairness.ipynb",
-              "title": "6.2 Melanoma Classification & Fairness",
-              "lite": true
-            },
-            {
-              "filename": "notebook_6_3_preprocessing.ipynb",
-              "path": "vol 1 notebooks/chapter_06/notebook_6_3_preprocessing.ipynb",
-              "title": "6.3 Image Preprocessing",
-              "lite": true
-            },
-            {
-              "filename": "notebook_6_4_augmentation.ipynb",
-              "path": "vol 1 notebooks/chapter_06/notebook_6_4_augmentation.ipynb",
-              "title": "6.4 Data Augmentation",
-              "lite": true
-            },
-            {
-              "filename": "notebook_6_5_lung_nodule_detection.ipynb",
-              "path": "vol 1 notebooks/chapter_06/notebook_6_5_lung_nodule_detection.ipynb",
-              "title": "6.5 Lung Nodule Detection",
-              "lite": true
-            },
-            {
-              "filename": "notebook_6_6_brain_tumor_segmentation_unet.ipynb",
-              "path": "vol 1 notebooks/chapter_06/notebook_6_6_brain_tumor_segmentation_unet.ipynb",
-              "title": "6.6 Brain Tumor Segmentation (U-Net)",
-              "lite": true
-            },
-            {
-              "filename": "notebook_6_7_gradcam.ipynb",
-              "path": "vol 1 notebooks/chapter_06/notebook_6_7_gradcam.ipynb",
-              "title": "6.7 Grad-CAM Visualization",
-              "lite": true
-            }
-          ]
-        },
-        {
-          "id": "ch7",
-          "title": "Chapter 7: Time Series and Signal Processing",
-          "notebooks": [
-            {
-              "filename": "notebook_7_1_signal_preprocessing.ipynb",
-              "path": "vol 1 notebooks/chapter_07/notebook_7_1_signal_preprocessing.ipynb",
-              "title": "7.1 Signal Preprocessing",
-              "lite": true
-            },
-            {
-              "filename": "notebook_7_2_feature_extraction.ipynb",
-              "path": "vol 1 notebooks/chapter_07/notebook_7_2_feature_extraction.ipynb",
-              "title": "7.2 Feature Extraction",
-              "lite": true
-            },
-            {
-              "filename": "notebook_7_3_sepsis_prediction_xgboost.ipynb",
-              "path": "vol 1 notebooks/chapter_07/notebook_7_3_sepsis_prediction_xgboost.ipynb",
-              "title": "7.3 Sepsis Prediction (XGBoost)",
-              "lite": true
-            },
-            {
-              "filename": "notebook_7_4_ecg_classification_1d_cnn.ipynb",
-              "path": "vol 1 notebooks/chapter_07/notebook_7_4_ecg_classification_1d_cnn.ipynb",
-              "title": "7.4 ECG Classification (1D CNN)",
-              "lite": true
-            },
-            {
-              "filename": "notebook_7_5_forecasting.ipynb",
-              "path": "vol 1 notebooks/chapter_07/notebook_7_5_forecasting.ipynb",
-              "title": "7.5 Time-Series Forecasting",
-              "lite": true
-            },
-            {
-              "filename": "notebook_7_6_realtime_processing.ipynb",
-              "path": "vol 1 notebooks/chapter_07/notebook_7_6_realtime_processing.ipynb",
-              "title": "7.6 Real-Time Processing",
-              "lite": true
-            }
-          ]
-        },
-        {
-          "id": "ch8",
-          "title": "Chapter 8: Clinical NLP and LLMs",
-          "notebooks": [
-            {
-              "filename": "notebook_8_1_text_preprocessing.ipynb",
-              "path": "vol 1 notebooks/chapter_08/notebook_8_1_text_preprocessing.ipynb",
-              "title": "8.1 Text Preprocessing",
-              "lite": true
-            },
-            {
-              "filename": "notebook_8_2_ner.ipynb",
-              "path": "vol 1 notebooks/chapter_08/notebook_8_2_ner.ipynb",
-              "title": "8.2 Named Entity Recognition",
-              "lite": true
-            },
-            {
-              "filename": "notebook_8_3_bert_classification.ipynb",
-              "path": "vol 1 notebooks/chapter_08/notebook_8_3_bert_classification.ipynb",
-              "title": "8.3 BERT Text Classification",
-              "lite": true
-            },
-            {
-              "filename": "notebook_8_4_llm_prompting.ipynb",
-              "path": "vol 1 notebooks/chapter_08/notebook_8_4_llm_prompting.ipynb",
-              "title": "8.4 LLM Prompting",
-              "lite": false
-            },
-            {
-              "filename": "notebook_8_5_rag.ipynb",
-              "path": "vol 1 notebooks/chapter_08/notebook_8_5_rag.ipynb",
-              "title": "8.5 Retrieval-Augmented Generation",
-              "lite": false
-            },
-            {
-              "filename": "notebook_8_6_summarization.ipynb",
-              "path": "vol 1 notebooks/chapter_08/notebook_8_6_summarization.ipynb",
-              "title": "8.6 Clinical Text Summarization",
-              "lite": false
-            },
-            {
-              "filename": "notebook_8_7_hallucination_detection.ipynb",
-              "path": "vol 1 notebooks/chapter_08/notebook_8_7_hallucination_detection.ipynb",
-              "title": "8.7 Hallucination Detection",
-              "lite": false
-            },
-            {
-              "filename": "notebook_8_8_llm_differential_diagnosis.ipynb",
-              "path": "vol 1 notebooks/chapter_08/notebook_8_8_llm_differential_diagnosis.ipynb",
-              "title": "8.8 LLM Differential Diagnosis",
-              "lite": false
-            }
-          ]
-        },
-        {
-          "id": "ch9",
-          "title": "Chapter 9: Fairness and Bias",
-          "notebooks": [
-            {
-              "filename": "notebook_9_1_dataset_bias_measurement.ipynb",
-              "path": "vol 1 notebooks/chapter_09/notebook_9_1_dataset_bias_measurement.ipynb",
-              "title": "9.1 Dataset Bias Measurement",
-              "lite": true
-            },
-            {
-              "filename": "notebook_9_2_fairness_metrics.ipynb",
-              "path": "vol 1 notebooks/chapter_09/notebook_9_2_fairness_metrics.ipynb",
-              "title": "9.2 Fairness Metrics",
-              "lite": true
-            },
-            {
-              "filename": "notebook_9_3_bias_mitigation.ipynb",
-              "path": "vol 1 notebooks/chapter_09/notebook_9_3_bias_mitigation.ipynb",
-              "title": "9.3 Bias Mitigation",
-              "lite": false
-            },
-            {
-              "filename": "notebook_9_4_priyas_journey.ipynb",
-              "path": "vol 1 notebooks/chapter_09/notebook_9_4_priyas_journey.ipynb",
-              "title": "9.4 Priya's Journey",
-              "lite": false
-            },
-            {
-              "filename": "notebook_9_5_intersectional_fairness.ipynb",
-              "path": "vol 1 notebooks/chapter_09/notebook_9_5_intersectional_fairness.ipynb",
-              "title": "9.5 Intersectional Fairness",
-              "lite": true
-            }
-          ]
-        },
-        {
-          "id": "ch10",
-          "title": "Chapter 10: Interpretability",
-          "notebooks": [
-            {
-              "filename": "notebook_10_1_shap_feature_importance.ipynb",
-              "path": "vol 1 notebooks/chapter_10/notebook_10_1_shap_feature_importance.ipynb",
-              "title": "10.1 SHAP Feature Importance",
-              "lite": false
-            },
-            {
-              "filename": "notebook_10_2_lime_explanations.ipynb",
-              "path": "vol 1 notebooks/chapter_10/notebook_10_2_lime_explanations.ipynb",
-              "title": "10.2 LIME Explanations",
-              "lite": false
-            },
-            {
-              "filename": "notebook_10_3_gradcam_imaging.ipynb",
-              "path": "vol 1 notebooks/chapter_10/notebook_10_3_gradcam_imaging.ipynb",
-              "title": "10.3 Grad-CAM for Imaging",
-              "lite": false
-            },
-            {
-              "filename": "notebook_10_4_counterfactual_explanations.ipynb",
-              "path": "vol 1 notebooks/chapter_10/notebook_10_4_counterfactual_explanations.ipynb",
-              "title": "10.4 Counterfactual Explanations",
-              "lite": true
-            }
-          ]
-        },
-        {
-          "id": "ch11",
-          "title": "Chapter 11: Privacy and Security",
-          "notebooks": [
-            {
-              "filename": "notebook_11_1_differential_privacy.ipynb",
-              "path": "vol 1 notebooks/chapter_11/notebook_11_1_differential_privacy.ipynb",
-              "title": "11.1 Differential Privacy",
-              "lite": true
-            },
-            {
-              "filename": "notebook_11_2_federated_learning.ipynb",
-              "path": "vol 1 notebooks/chapter_11/notebook_11_2_federated_learning.ipynb",
-              "title": "11.2 Federated Learning",
-              "lite": true
-            },
-            {
-              "filename": "notebook_11_3_adversarial_robustness.ipynb",
-              "path": "vol 1 notebooks/chapter_11/notebook_11_3_adversarial_robustness.ipynb",
-              "title": "11.3 Adversarial Robustness",
-              "lite": false
-            }
-          ]
-        }
-      ]
+      "id": "ch4",
+      "label": "Chapter 4",
+      "title": "Data Preparation"
+    },
+    {
+      "id": "ch5",
+      "label": "Chapter 5",
+      "title": "Evaluation Metrics"
+    },
+    {
+      "id": "ch6",
+      "label": "Chapter 6",
+      "title": "Medical Imaging and Computer Vision"
+    },
+    {
+      "id": "ch7",
+      "label": "Chapter 7",
+      "title": "Time Series and Signal Processing"
+    },
+    {
+      "id": "ch8",
+      "label": "Chapter 8",
+      "title": "Clinical NLP and LLMs"
+    },
+    {
+      "id": "ch9",
+      "label": "Chapter 9",
+      "title": "Fairness and Bias"
+    },
+    {
+      "id": "ch10",
+      "label": "Chapter 10",
+      "title": "Interpretability"
+    },
+    {
+      "id": "ch11",
+      "label": "Chapter 11",
+      "title": "Privacy and Security"
     },
     {
       "id": "vol2",
-      "title": "Volume 2",
-      "color": "teal",
-      "chapters": [
-        {
-          "id": "vol2-notebooks",
-          "title": "Notebooks",
-          "notebooks": [
-            {
-              "filename": "notebook_1A_drift_detection.ipynb",
-              "path": "vol 2 notebooks/notebook_1A_drift_detection.ipynb",
-              "title": "1A Drift Detection",
-              "lite": true
-            },
-            {
-              "filename": "notebook_2A_data_poisoning.ipynb",
-              "path": "vol 2 notebooks/notebook_2A_data_poisoning.ipynb",
-              "title": "2A Data Poisoning",
-              "lite": true
-            },
-            {
-              "filename": "notebook_2B_byzantine_fl.ipynb",
-              "path": "vol 2 notebooks/notebook_2B_byzantine_fl.ipynb",
-              "title": "2B Byzantine Federated Learning",
-              "lite": true
-            },
-            {
-              "filename": "notebook_5A_alert_design.ipynb",
-              "path": "vol 2 notebooks/notebook_5A_alert_design.ipynb",
-              "title": "5A Alert Design",
-              "lite": true
-            },
-            {
-              "filename": "notebook_6A_success_metrics.ipynb",
-              "path": "vol 2 notebooks/notebook_6A_success_metrics.ipynb",
-              "title": "6A Success Metrics",
-              "lite": true
-            }
-          ]
-        }
-      ]
+      "label": "Volume 2",
+      "title": "Implementation, Governance, and Clinical Translation"
+    }
+  ],
+  "notebooks": [
+    {
+      "num": "4.1",
+      "vol": 1,
+      "chapter": "ch4",
+      "subchapter": "",
+      "slug": "notebook_4_1_data_quality_assessment",
+      "file": "vol 1 notebooks/chapter_04/notebook_4_1_data_quality_assessment.ipynb",
+      "title": "Data Quality Assessment",
+      "question": "How do you tell whether a clinical dataset is fit for modelling before you train anything?",
+      "concepts": [
+        "Assess data completeness, consistency, and validity",
+        "Detect outliers and anomalous values",
+        "Generate comprehensive data quality reports",
+        "Visualize data quality issues systematically"
+      ],
+      "lite": "full",
+      "journey": null,
+      "llm_optional": false
+    },
+    {
+      "num": "4.2",
+      "vol": 1,
+      "chapter": "ch4",
+      "subchapter": "",
+      "slug": "notebook_4_2_missing_data_handling",
+      "file": "vol 1 notebooks/chapter_04/notebook_4_2_missing_data_handling.ipynb",
+      "title": "Missing Data Handling",
+      "question": "Why does how data went missing matter more than how much is missing?",
+      "concepts": [
+        "Understand different missing data mechanisms (MCAR, MAR, MNAR)",
+        "Implement various imputation strategies",
+        "Compare the impact of imputation methods on model performance",
+        "Visualize missing data patterns"
+      ],
+      "lite": "full",
+      "journey": null,
+      "llm_optional": false
+    },
+    {
+      "num": "4.3",
+      "vol": 1,
+      "chapter": "ch4",
+      "subchapter": "",
+      "slug": "notebook_4_3_feature_engineering",
+      "file": "vol 1 notebooks/chapter_04/notebook_4_3_feature_engineering.ipynb",
+      "title": "Feature Engineering",
+      "question": "How do you turn raw labs and vitals into features that carry clinical meaning?",
+      "concepts": [
+        "Create clinically meaningful derived features",
+        "Engineer temporal features from time series data",
+        "Design interaction features that capture clinical relationships",
+        "Implement domain-specific transformations"
+      ],
+      "lite": "full",
+      "journey": null,
+      "llm_optional": false
+    },
+    {
+      "num": "4.4",
+      "vol": 1,
+      "chapter": "ch4",
+      "subchapter": "",
+      "slug": "notebook_4_4_cross_validation",
+      "file": "vol 1 notebooks/chapter_04/notebook_4_4_cross_validation.ipynb",
+      "title": "Cross-Validation Strategies",
+      "question": "Why does ordinary k-fold cross-validation overestimate performance on patient data?",
+      "concepts": [
+        "Implement standard k-fold cross-validation",
+        "Use stratified CV for class-imbalanced datasets",
+        "Apply temporal CV for time series data",
+        "Design grouped CV for patient-level splitting"
+      ],
+      "lite": "full",
+      "journey": null,
+      "llm_optional": false
+    },
+    {
+      "num": "4.5",
+      "vol": 1,
+      "chapter": "ch4",
+      "subchapter": "",
+      "slug": "notebook_4_5_data_leakage",
+      "file": "vol 1 notebooks/chapter_04/notebook_4_5_data_leakage.ipynb",
+      "title": "Data Leakage Detection",
+      "question": "How can information from the future or from the test set sneak into a model?",
+      "concepts": [
+        "Identify common types of data leakage in healthcare ML",
+        "Detect target leakage and temporal leakage",
+        "Build proper preprocessing pipelines to prevent leakage",
+        "Quantify the impact of leakage on model performance"
+      ],
+      "lite": "full",
+      "journey": null,
+      "llm_optional": false
+    },
+    {
+      "num": "5.1",
+      "vol": 1,
+      "chapter": "ch5",
+      "subchapter": "",
+      "slug": "notebook_5_1_classification_metrics",
+      "file": "vol 1 notebooks/chapter_05/notebook_5_1_classification_metrics.ipynb",
+      "title": "Classification Metrics",
+      "question": "Which metric should you report when a missed case and a false alarm cost very different things?",
+      "concepts": [
+        "Calculate and interpret all metrics from a confusion matrix",
+        "Understand the sensitivity-specificity trade-off",
+        "Calculate PPV and NPV as functions of prevalence",
+        "Select appropriate metrics for different clinical scenarios"
+      ],
+      "lite": "full",
+      "journey": null,
+      "llm_optional": false
+    },
+    {
+      "num": "5.2",
+      "vol": 1,
+      "chapter": "ch5",
+      "subchapter": "",
+      "slug": "notebook_5_2_roc_pr_curves",
+      "file": "vol 1 notebooks/chapter_05/notebook_5_2_roc_pr_curves.ipynb",
+      "title": "ROC and PR Curves",
+      "question": "When does a high AUROC hide a model that is unhelpful for a rare condition?",
+      "concepts": [
+        "Construct and interpret ROC curves and understand what AUROC represents",
+        "Construct and interpret Precision-Recall (PR) curves and AUPRC",
+        "Choose between ROC and PR curves based on class balance and clinical context",
+        "Select optimal operating points based on clinical costs and constraints"
+      ],
+      "lite": "full",
+      "journey": null,
+      "llm_optional": false
+    },
+    {
+      "num": "5.3",
+      "vol": 1,
+      "chapter": "ch5",
+      "subchapter": "",
+      "slug": "notebook_5_3_cvd_risk_calibration",
+      "file": "vol 1 notebooks/chapter_05/notebook_5_3_cvd_risk_calibration.ipynb",
+      "title": "Calibration Analysis (CVD Risk)",
+      "question": "If a model says 20% risk, do 20 in 100 such patients actually have the event?",
+      "concepts": [
+        "Implement classical risk scores (Framingham) vs ML models",
+        "Calculate calibration metrics (Brier score, calibration curves, ECE)",
+        "Understand discrimination (AUROC) vs calibration trade-offs",
+        "Apply recalibration methods (Platt scaling, isotonic regression)"
+      ],
+      "lite": "full",
+      "journey": "David",
+      "llm_optional": false
+    },
+    {
+      "num": "5.4",
+      "vol": 1,
+      "chapter": "ch5",
+      "subchapter": "",
+      "slug": "notebook_5_4_regression_metrics",
+      "file": "vol 1 notebooks/chapter_05/notebook_5_4_regression_metrics.ipynb",
+      "title": "Regression Metrics",
+      "question": "How do you judge a model that predicts a number instead of a class?",
+      "concepts": [
+        "Calculate and interpret regression metrics: MAE, RMSE, R², MAPE",
+        "Perform residual analysis to diagnose model problems",
+        "Understand clinical implications of different error metrics",
+        "Choose appropriate metrics based on clinical context"
+      ],
+      "lite": "full",
+      "journey": null,
+      "llm_optional": false
+    },
+    {
+      "num": "5.5",
+      "vol": 1,
+      "chapter": "ch5",
+      "subchapter": "",
+      "slug": "notebook_5_5_segmentation_metrics",
+      "file": "vol 1 notebooks/chapter_05/notebook_5_5_segmentation_metrics.ipynb",
+      "title": "Segmentation Metrics",
+      "question": "How do you score a tumour outline against an expert's?",
+      "concepts": [
+        "Calculate and interpret Dice coefficient (F1 score for segmentation)",
+        "Calculate and interpret IoU (Intersection over Union / Jaccard Index)",
+        "Understand Hausdorff distance for boundary errors",
+        "Calculate surface distances (95th percentile)"
+      ],
+      "lite": "full",
+      "journey": null,
+      "llm_optional": false
+    },
+    {
+      "num": "5.6",
+      "vol": 1,
+      "chapter": "ch5",
+      "subchapter": "",
+      "slug": "notebook_5_6_fairness_metrics",
+      "file": "vol 1 notebooks/chapter_05/notebook_5_6_fairness_metrics.ipynb",
+      "title": "Fairness Metrics Preview",
+      "question": "Does a model that performs well overall perform well for everyone?",
+      "concepts": [
+        "Measure stratified performance across demographic groups",
+        "Calculate demographic parity and understand fairness definitions",
+        "Calculate equalized odds and equality of opportunity",
+        "Identify algorithmic bias in healthcare AI models"
+      ],
+      "lite": "full",
+      "journey": null,
+      "llm_optional": false
+    },
+    {
+      "num": "6.1",
+      "vol": 1,
+      "chapter": "ch6",
+      "subchapter": "",
+      "slug": "notebook_6_1_cnn_fundamentals",
+      "file": "vol 1 notebooks/chapter_06/notebook_6_1_cnn_fundamentals.ipynb",
+      "title": "CNN Fundamentals",
+      "question": "What is a convolution actually doing to a medical image?",
+      "concepts": [
+        "Understand convolution operations from first principles",
+        "Build a CNN from scratch (no high-level frameworks)",
+        "Visualize filters, feature maps, and activation patterns",
+        "Understand pooling, stride, and receptive fields"
+      ],
+      "lite": "full",
+      "journey": null,
+      "llm_optional": false
+    },
+    {
+      "num": "6.2",
+      "vol": 1,
+      "chapter": "ch6",
+      "subchapter": "",
+      "slug": "notebook_6_2_melanoma_classification_fairness",
+      "file": "vol 1 notebooks/chapter_06/notebook_6_2_melanoma_classification_fairness.ipynb",
+      "title": "Melanoma Classification & Fairness",
+      "question": "Why might a skin-lesion classifier miss melanoma on darker skin?",
+      "concepts": [
+        "Generate synthetic skin lesion images with varying skin tones",
+        "Implement a simplified transfer learning approach for classification",
+        "Identify performance disparities across demographic groups",
+        "Calculate fairness metrics (equalized odds, demographic parity)"
+      ],
+      "lite": "full",
+      "journey": "Priya",
+      "llm_optional": false
+    },
+    {
+      "num": "6.3",
+      "vol": 1,
+      "chapter": "ch6",
+      "subchapter": "",
+      "slug": "notebook_6_3_preprocessing",
+      "file": "vol 1 notebooks/chapter_06/notebook_6_3_preprocessing.ipynb",
+      "title": "Image Preprocessing",
+      "question": "Why must CT, MRI and X-ray images be prepared differently before modelling?",
+      "concepts": [
+        "Understand modality-specific preprocessing (CT vs MRI vs X-ray)",
+        "Implement intensity normalization techniques",
+        "Apply CT windowing for specific anatomical structures",
+        "Perform MRI bias field correction"
+      ],
+      "lite": "full",
+      "journey": null,
+      "llm_optional": false
+    },
+    {
+      "num": "6.4",
+      "vol": 1,
+      "chapter": "ch6",
+      "subchapter": "",
+      "slug": "notebook_6_4_augmentation",
+      "file": "vol 1 notebooks/chapter_06/notebook_6_4_augmentation.ipynb",
+      "title": "Data Augmentation",
+      "question": "Which image augmentations are safe for medical images, and which change the diagnosis?",
+      "concepts": [
+        "Understand why augmentation is critical for medical imaging CNNs",
+        "Implement geometric transformations (rotation, flipping, scaling)",
+        "Apply intensity transformations (brightness, contrast, noise)",
+        "Use elastic deformations for realistic tissue variation"
+      ],
+      "lite": "full",
+      "journey": null,
+      "llm_optional": false
+    },
+    {
+      "num": "6.5",
+      "vol": 1,
+      "chapter": "ch6",
+      "subchapter": "",
+      "slug": "notebook_6_5_lung_nodule_detection",
+      "file": "vol 1 notebooks/chapter_06/notebook_6_5_lung_nodule_detection.ipynb",
+      "title": "Lung Nodule Detection",
+      "question": "How do you evaluate a detector that finds nodules, not just one that classifies scans?",
+      "concepts": [
+        "Generate synthetic 2D CT slices with nodule candidates",
+        "Implement a simple nodule detector using intensity thresholding and morphology",
+        "Calculate Intersection over Union (IoU) for bounding box evaluation",
+        "Generate Free-Response ROC (FROC) curves for detection tasks"
+      ],
+      "lite": "full",
+      "journey": "Jamal",
+      "llm_optional": false
+    },
+    {
+      "num": "6.6",
+      "vol": 1,
+      "chapter": "ch6",
+      "subchapter": "",
+      "slug": "notebook_6_6_brain_tumor_segmentation_unet",
+      "file": "vol 1 notebooks/chapter_06/notebook_6_6_brain_tumor_segmentation_unet.ipynb",
+      "title": "Brain Tumor Segmentation (U-Net)",
+      "question": "How do you segment a brain tumour and decide whether the outline is good enough?",
+      "concepts": [
+        "Generate synthetic MRI brain scans with tumor masks",
+        "Implement a simplified U-Net architecture for semantic segmentation",
+        "Calculate Dice coefficient and IoU for segmentation quality",
+        "Visualize segmentation outputs and overlay on MRI"
+      ],
+      "lite": "full",
+      "journey": "Elena",
+      "llm_optional": false
+    },
+    {
+      "num": "6.7",
+      "vol": 1,
+      "chapter": "ch6",
+      "subchapter": "",
+      "slug": "notebook_6_7_gradcam",
+      "file": "vol 1 notebooks/chapter_06/notebook_6_7_gradcam.ipynb",
+      "title": "Grad-CAM Visualization",
+      "question": "Can a heatmap tell you whether a model is looking at the lesion or at a ruler?",
+      "concepts": [
+        "Understand the \"black box\" problem in medical AI",
+        "Implement Gradient-weighted Class Activation Mapping (GradCAM)",
+        "Visualize which image regions influence CNN decisions",
+        "Detect spurious correlations and dataset biases"
+      ],
+      "lite": "full",
+      "journey": null,
+      "llm_optional": false
+    },
+    {
+      "num": "7.1",
+      "vol": 1,
+      "chapter": "ch7",
+      "subchapter": "",
+      "slug": "notebook_7_1_signal_preprocessing",
+      "file": "vol 1 notebooks/chapter_07/notebook_7_1_signal_preprocessing.ipynb",
+      "title": "Signal Preprocessing",
+      "question": "How do you remove noise from an ECG without removing the signal that matters?",
+      "concepts": [
+        "Filtering techniques: Bandpass, lowpass, highpass, and notch filters for physiological signals",
+        "Baseline wander removal: Techniques to eliminate slow drift in ECG signals",
+        "Signal quality assessment: Quantitative metrics to evaluate signal usability",
+        "Artifact detection: Identifying and handling motion artifacts, powerline interference, and electrode noise"
+      ],
+      "lite": "full",
+      "journey": null,
+      "llm_optional": false
+    },
+    {
+      "num": "7.2",
+      "vol": 1,
+      "chapter": "ch7",
+      "subchapter": "",
+      "slug": "notebook_7_2_feature_extraction",
+      "file": "vol 1 notebooks/chapter_07/notebook_7_2_feature_extraction.ipynb",
+      "title": "Feature Extraction",
+      "question": "Which numbers summarise a physiological signal well enough to predict from?",
+      "concepts": [
+        "Time-domain features: Statistical features, Heart Rate Variability (HRV) metrics, morphological features",
+        "Frequency-domain features: Power Spectral Density (PSD), spectral bands, frequency ratios",
+        "Wavelet features: Time-frequency analysis, wavelet coefficients, multi-resolution decomposition",
+        "Feature-based vs deep learning: When to use engineered features vs end-to-end learning"
+      ],
+      "lite": "full",
+      "journey": null,
+      "llm_optional": false
+    },
+    {
+      "num": "7.3",
+      "vol": 1,
+      "chapter": "ch7",
+      "subchapter": "",
+      "slug": "notebook_7_3_sepsis_prediction_xgboost",
+      "file": "vol 1 notebooks/chapter_07/notebook_7_3_sepsis_prediction_xgboost.ipynb",
+      "title": "Sepsis Prediction (XGBoost)",
+      "question": "How early can vital-sign trends warn of sepsis, and at what cost in false alarms?",
+      "concepts": [
+        "Understand temporal feature engineering for sepsis early warning systems",
+        "Implement gradient boosting (XGBoost) for imbalanced classification",
+        "Optimize decision thresholds for sensitivity/specificity trade-offs",
+        "Visualize prediction timelines and analyze alert patterns"
+      ],
+      "lite": "full",
+      "journey": "Marcus",
+      "llm_optional": false
+    },
+    {
+      "num": "7.4",
+      "vol": 1,
+      "chapter": "ch7",
+      "subchapter": "",
+      "slug": "notebook_7_4_ecg_classification_1d_cnn",
+      "file": "vol 1 notebooks/chapter_07/notebook_7_4_ecg_classification_1d_cnn.ipynb",
+      "title": "ECG Classification (1D CNN)",
+      "question": "How can a wearable tell atrial fibrillation from normal rhythm and motion artifact?",
+      "concepts": [
+        "Preprocess ECG waveforms (filtering, quality assessment)",
+        "Extract hand-crafted features (R-R intervals, HRV)",
+        "Train 1D CNN for rhythm classification",
+        "Analyze false positives and motion artifacts"
+      ],
+      "lite": "full",
+      "journey": "Yuki",
+      "llm_optional": false
+    },
+    {
+      "num": "7.5",
+      "vol": 1,
+      "chapter": "ch7",
+      "subchapter": "",
+      "slug": "notebook_7_5_forecasting",
+      "file": "vol 1 notebooks/chapter_07/notebook_7_5_forecasting.ipynb",
+      "title": "Time-Series Forecasting",
+      "question": "How far ahead can we forecast a patient's vital signs, and how sure can we be?",
+      "concepts": [
+        "Vital sign forecasting: Predicting future values of physiological signals (heart rate, blood pressure)",
+        "Multi-step prediction: Forecasting multiple time steps ahead with horizon uncertainty",
+        "Uncertainty quantification: Confidence intervals and prediction intervals for clinical decision-making",
+        "Model comparison: Classical methods (ARIMA, Exponential Smoothing) vs deep learning (LSTM)"
+      ],
+      "lite": "full",
+      "journey": null,
+      "llm_optional": false
+    },
+    {
+      "num": "7.6",
+      "vol": 1,
+      "chapter": "ch7",
+      "subchapter": "",
+      "slug": "notebook_7_6_realtime_processing",
+      "file": "vol 1 notebooks/chapter_07/notebook_7_6_realtime_processing.ipynb",
+      "title": "Real-Time Processing",
+      "question": "What changes when the signal arrives live and the device has a tight power budget?",
+      "concepts": [
+        "Streaming data simulation: Processing continuous physiological signals in real-time",
+        "Online inference: Making predictions on streaming data with low latency",
+        "Latency measurement: Profiling computational bottlenecks and optimization strategies",
+        "Edge deployment: Considerations for deploying models on wearables and bedside monitors"
+      ],
+      "lite": "full",
+      "journey": null,
+      "llm_optional": false
+    },
+    {
+      "num": "8.1",
+      "vol": 1,
+      "chapter": "ch8",
+      "subchapter": "",
+      "slug": "notebook_8_1_text_preprocessing",
+      "file": "vol 1 notebooks/chapter_08/notebook_8_1_text_preprocessing.ipynb",
+      "title": "Text Preprocessing",
+      "question": "How do you clean clinical notes, handle negation, and remove identifiers?",
+      "concepts": [
+        "Parse clinical note sections using rule-based and regex approaches",
+        "Tokenize medical text with consideration for clinical abbreviations and multi-word terms",
+        "Detect negation to distinguish between present vs. absent conditions",
+        "De-identify clinical text by removing Protected Health Information (PHI)"
+      ],
+      "lite": "full",
+      "journey": null,
+      "llm_optional": false
+    },
+    {
+      "num": "8.2",
+      "vol": 1,
+      "chapter": "ch8",
+      "subchapter": "",
+      "slug": "notebook_8_2_ner",
+      "file": "vol 1 notebooks/chapter_08/notebook_8_2_ner.ipynb",
+      "title": "Named Entity Recognition",
+      "question": "How do you pull drugs, diagnoses and doses out of free text?",
+      "concepts": [
+        "Implement rule-based NER using regex and medical dictionaries",
+        "Build CRF-based NER models using sequence features",
+        "Understand BioBERT/ClinicalBERT for clinical entity extraction",
+        "Evaluate NER systems using precision, recall, and F1-score"
+      ],
+      "lite": "full",
+      "journey": null,
+      "llm_optional": false
+    },
+    {
+      "num": "8.3",
+      "vol": 1,
+      "chapter": "ch8",
+      "subchapter": "",
+      "slug": "notebook_8_3_bert_classification",
+      "file": "vol 1 notebooks/chapter_08/notebook_8_3_bert_classification.ipynb",
+      "title": "BERT Text Classification",
+      "question": "How do contextual language models classify clinical text, and when are they worth it?",
+      "concepts": [
+        "Understand BERT architecture and contextualized embeddings",
+        "Compare traditional vs. BERT-based approaches for clinical text classification",
+        "Fine-tune ClinicalBERT for specialty classification tasks",
+        "Implement BERT using HuggingFace Transformers library"
+      ],
+      "lite": "full",
+      "journey": null,
+      "llm_optional": false
+    },
+    {
+      "num": "8.4",
+      "vol": 1,
+      "chapter": "ch8",
+      "subchapter": "",
+      "slug": "notebook_8_4_llm_prompting",
+      "file": "vol 1 notebooks/chapter_08/notebook_8_4_llm_prompting.ipynb",
+      "title": "LLM Prompting",
+      "question": "How do zero-shot, few-shot and chain-of-thought prompts change an LLM's clinical answers?",
+      "concepts": [
+        "Design effective prompts for zero-shot and few-shot learning",
+        "Implement chain-of-thought reasoning for complex clinical tasks",
+        "Use LLM APIs (OpenRouter, HuggingFace, Google Vertex AI) for clinical NLP",
+        "Parse and validate LLM outputs for structured data extraction"
+      ],
+      "lite": "colab",
+      "journey": null,
+      "llm_optional": true
+    },
+    {
+      "num": "8.5",
+      "vol": 1,
+      "chapter": "ch8",
+      "subchapter": "",
+      "slug": "notebook_8_5_rag",
+      "file": "vol 1 notebooks/chapter_08/notebook_8_5_rag.ipynb",
+      "title": "Retrieval-Augmented Generation",
+      "question": "Can grounding an LLM in clinical guidelines stop it from making things up?",
+      "concepts": [
+        "Understand the RAG architecture and why it's essential for clinical applications",
+        "Implement document chunking strategies for medical literature",
+        "Build semantic search using embeddings and vector databases",
+        "Create a production-ready RAG pipeline for clinical guidelines"
+      ],
+      "lite": "colab",
+      "journey": null,
+      "llm_optional": true
+    },
+    {
+      "num": "8.6",
+      "vol": 1,
+      "chapter": "ch8",
+      "subchapter": "",
+      "slug": "notebook_8_6_summarization",
+      "file": "vol 1 notebooks/chapter_08/notebook_8_6_summarization.ipynb",
+      "title": "Clinical Text Summarization",
+      "question": "Can an LLM summarise a clinical note without dropping or inventing facts?",
+      "concepts": [
+        "Understand extractive vs. abstractive summarization approaches",
+        "Implement TF-IDF and TextRank for extractive summarization",
+        "Use LLMs for abstractive clinical summarization",
+        "Evaluate summaries with ROUGE metrics and clinical quality criteria"
+      ],
+      "lite": "colab",
+      "journey": null,
+      "llm_optional": true
+    },
+    {
+      "num": "8.7",
+      "vol": 1,
+      "chapter": "ch8",
+      "subchapter": "",
+      "slug": "notebook_8_7_hallucination_detection",
+      "file": "vol 1 notebooks/chapter_08/notebook_8_7_hallucination_detection.ipynb",
+      "title": "Hallucination Detection",
+      "question": "How do you detect when an LLM's clinical answer is not supported by evidence?",
+      "concepts": [
+        "Understand types of LLM hallucinations in clinical contexts",
+        "Implement consistency checking across multiple generations",
+        "Build fact verification systems using knowledge bases",
+        "Detect hallucinations through self-consistency and entailment"
+      ],
+      "lite": "colab",
+      "journey": null,
+      "llm_optional": true
+    },
+    {
+      "num": "8.8",
+      "vol": 1,
+      "chapter": "ch8",
+      "subchapter": "",
+      "slug": "notebook_8_8_llm_differential_diagnosis",
+      "file": "vol 1 notebooks/chapter_08/notebook_8_8_llm_differential_diagnosis.ipynb",
+      "title": "LLM Differential Diagnosis",
+      "question": "How do you build safety checks around an LLM that suggests diagnoses?",
+      "concepts": [
+        "Implement a simulated LLM-based differential diagnosis system",
+        "Build a knowledge retrieval system (RAG) using medical knowledge",
+        "Detect hallucinations in LLM outputs",
+        "Understand failure modes of LLMs in clinical settings"
+      ],
+      "lite": "colab",
+      "journey": "Aisha",
+      "llm_optional": true
+    },
+    {
+      "num": "9.1",
+      "vol": 1,
+      "chapter": "ch9",
+      "subchapter": "",
+      "slug": "notebook_9_1_dataset_bias_measurement",
+      "file": "vol 1 notebooks/chapter_09/notebook_9_1_dataset_bias_measurement.ipynb",
+      "title": "Dataset Bias Measurement",
+      "question": "Who is missing from the training data, and how do you measure it?",
+      "concepts": [
+        "Identify sources of representation bias in medical datasets",
+        "Measure demographic imbalance quantitatively",
+        "Visualize distribution disparities across protected groups",
+        "Apply statistical tests to detect significant underrepresentation"
+      ],
+      "lite": "full",
+      "journey": null,
+      "llm_optional": false
+    },
+    {
+      "num": "9.2",
+      "vol": 1,
+      "chapter": "ch9",
+      "subchapter": "",
+      "slug": "notebook_9_2_fairness_metrics",
+      "file": "vol 1 notebooks/chapter_09/notebook_9_2_fairness_metrics.ipynb",
+      "title": "Fairness Metrics",
+      "question": "What does \"fair\" mean, and why can't a model satisfy every definition at once?",
+      "concepts": [
+        "Implement core fairness metrics: demographic parity, equalized odds, equal opportunity, predictive parity",
+        "Understand mathematical relationships and impossibility theorems",
+        "Compute fairness metrics from confusion matrices",
+        "Visualize fairness-accuracy trade-offs"
+      ],
+      "lite": "full",
+      "journey": null,
+      "llm_optional": false
+    },
+    {
+      "num": "9.3",
+      "vol": 1,
+      "chapter": "ch9",
+      "subchapter": "",
+      "slug": "notebook_9_3_bias_mitigation",
+      "file": "vol 1 notebooks/chapter_09/notebook_9_3_bias_mitigation.ipynb",
+      "title": "Bias Mitigation",
+      "question": "What can you do about bias before, during and after training, and what does each option cost?",
+      "concepts": [
+        "Understand the three main categories of bias mitigation",
+        "Implement resampling and SMOTE for data balancing",
+        "Train fairness-constrained models with custom loss functions",
+        "Apply threshold optimization for post-processing fairness"
+      ],
+      "lite": "colab",
+      "journey": null,
+      "llm_optional": false
+    },
+    {
+      "num": "9.4",
+      "vol": 1,
+      "chapter": "ch9",
+      "subchapter": "",
+      "slug": "notebook_9_4_priyas_journey",
+      "file": "vol 1 notebooks/chapter_09/notebook_9_4_priyas_journey.ipynb",
+      "title": "Priya's Journey",
+      "question": "How did representation bias lead to Priya's missed melanoma, and what would have prevented it?",
+      "concepts": [
+        "Understand how representation bias manifests in real clinical harm",
+        "Implement fairness evaluation for melanoma detection models",
+        "Apply and compare multiple bias mitigation strategies",
+        "Make evidence-based decisions about model deployment"
+      ],
+      "lite": "colab",
+      "journey": "Priya",
+      "llm_optional": false
+    },
+    {
+      "num": "9.5",
+      "vol": 1,
+      "chapter": "ch9",
+      "subchapter": "",
+      "slug": "notebook_9_5_intersectional_fairness",
+      "file": "vol 1 notebooks/chapter_09/notebook_9_5_intersectional_fairness.ipynb",
+      "title": "Intersectional Fairness",
+      "question": "Why can a model look fair by race and by sex separately, yet fail Black women?",
+      "concepts": [
+        "Intersectional subgroup analysis across skin tone, sex and age",
+        "Why single-axis fairness checks miss compounded gaps",
+        "Uncertainty in small subgroups",
+        "Mitigation for intersectional groups"
+      ],
+      "lite": "full",
+      "journey": null,
+      "llm_optional": false
+    },
+    {
+      "num": "10.1",
+      "vol": 1,
+      "chapter": "ch10",
+      "subchapter": "",
+      "slug": "notebook_10_1_shap_feature_importance",
+      "file": "vol 1 notebooks/chapter_10/notebook_10_1_shap_feature_importance.ipynb",
+      "title": "SHAP Feature Importance",
+      "question": "Which features drive a risk prediction, and can explanations expose a shortcut?",
+      "concepts": [
+        "Understand the difference between global and local explanations",
+        "Implement permutation importance for model validation",
+        "Compute SHAP values for individual predictions",
+        "Visualize feature importance with clinical annotations"
+      ],
+      "lite": "colab",
+      "journey": null,
+      "llm_optional": false
+    },
+    {
+      "num": "10.2",
+      "vol": 1,
+      "chapter": "ch10",
+      "subchapter": "",
+      "slug": "notebook_10_2_lime_explanations",
+      "file": "vol 1 notebooks/chapter_10/notebook_10_2_lime_explanations.ipynb",
+      "title": "LIME Explanations",
+      "question": "How do you explain one patient's prediction with a simple local model?",
+      "concepts": [
+        "LIME local surrogate explanations",
+        "Explaining a single patient's readmission risk",
+        "Comparing LIME with SHAP",
+        "Clinician-facing risk reports"
+      ],
+      "lite": "colab",
+      "journey": null,
+      "llm_optional": false
+    },
+    {
+      "num": "10.3",
+      "vol": 1,
+      "chapter": "ch10",
+      "subchapter": "",
+      "slug": "notebook_10_3_gradcam_imaging",
+      "file": "vol 1 notebooks/chapter_10/notebook_10_3_gradcam_imaging.ipynb",
+      "title": "Grad-CAM for Imaging",
+      "question": "Where in a chest X-ray is the network looking when it predicts pneumonia?",
+      "concepts": [
+        "Grad-CAM heatmaps for CNNs",
+        "Checking whether attention falls on clinically relevant regions",
+        "Comparing correct and incorrect predictions"
+      ],
+      "lite": "colab",
+      "journey": null,
+      "llm_optional": false
+    },
+    {
+      "num": "10.4",
+      "vol": 1,
+      "chapter": "ch10",
+      "subchapter": "",
+      "slug": "notebook_10_4_counterfactual_explanations",
+      "file": "vol 1 notebooks/chapter_10/notebook_10_4_counterfactual_explanations.ipynb",
+      "title": "Counterfactual Explanations",
+      "question": "What is the smallest realistic change that would lower this patient's predicted risk?",
+      "concepts": [
+        "Counterfactual \"what-if\" explanations",
+        "Mutable vs immutable risk factors",
+        "Actionable and plausible changes",
+        "Communicating results to patients"
+      ],
+      "lite": "full",
+      "journey": null,
+      "llm_optional": false
+    },
+    {
+      "num": "11.1",
+      "vol": 1,
+      "chapter": "ch11",
+      "subchapter": "",
+      "slug": "notebook_11_1_differential_privacy",
+      "file": "vol 1 notebooks/chapter_11/notebook_11_1_differential_privacy.ipynb",
+      "title": "Differential Privacy",
+      "question": "How can you learn from patient data while mathematically limiting what leaks about any one patient?",
+      "concepts": [
+        "Differential privacy: ε, δ and what they guarantee",
+        "Noise mechanisms and gradient clipping",
+        "The privacy–utility trade-off",
+        "Privacy budgets and composition"
+      ],
+      "lite": "full",
+      "journey": null,
+      "llm_optional": false
+    },
+    {
+      "num": "11.2",
+      "vol": 1,
+      "chapter": "ch11",
+      "subchapter": "",
+      "slug": "notebook_11_2_federated_learning",
+      "file": "vol 1 notebooks/chapter_11/notebook_11_2_federated_learning.ipynb",
+      "title": "Federated Learning",
+      "question": "Can hospitals train a shared model without sharing patient data?",
+      "concepts": [
+        "Understand the FedAvg (Federated Averaging) algorithm",
+        "Implement federated learning for multi-hospital collaboration",
+        "Handle non-IID (non-Independent and Identically Distributed) data across institutions",
+        "Compare federated learning with centralized and local-only training"
+      ],
+      "lite": "full",
+      "journey": null,
+      "llm_optional": false
+    },
+    {
+      "num": "11.3",
+      "vol": 1,
+      "chapter": "ch11",
+      "subchapter": "",
+      "slug": "notebook_11_3_adversarial_robustness",
+      "file": "vol 1 notebooks/chapter_11/notebook_11_3_adversarial_robustness.ipynb",
+      "title": "Adversarial Robustness",
+      "question": "How easily can tiny, invisible changes fool a medical AI model, and how do you defend it?",
+      "concepts": [
+        "Understand adversarial attack methods: FGSM, PGD, C&W",
+        "Implement adversarial example generation",
+        "Evaluate model robustness to adversarial perturbations",
+        "Learn defense mechanisms: Adversarial Training, Defensive Distillation"
+      ],
+      "lite": "colab",
+      "journey": null,
+      "llm_optional": false
+    },
+    {
+      "num": "1A",
+      "vol": 2,
+      "chapter": "vol2",
+      "subchapter": "Chapter 1: Clinical Validation and Evidence",
+      "slug": "notebook_1A_drift_detection",
+      "file": "vol 2 notebooks/notebook_1A_drift_detection.ipynb",
+      "title": "Drift Detection",
+      "question": "How do you know when a deployed model has quietly stopped working?",
+      "concepts": [
+        "Implement statistical tests for detecting distribution drift (KS test, PSI, chi-squared)",
+        "Monitor model performance over time with appropriate metrics",
+        "Build interactive monitoring dashboards for deployed AI systems",
+        "Simulate distribution shifts and observe detection method responses"
+      ],
+      "lite": "full",
+      "journey": null,
+      "llm_optional": false
+    },
+    {
+      "num": "2A",
+      "vol": 2,
+      "chapter": "vol2",
+      "subchapter": "Chapter 2: Security, Privacy, and Robustness",
+      "slug": "notebook_2A_data_poisoning",
+      "file": "vol 2 notebooks/notebook_2A_data_poisoning.ipynb",
+      "title": "Data Poisoning",
+      "question": "How could someone corrupt a clinical model by tampering with its training data?",
+      "concepts": [
+        "Implement common data poisoning attacks (label flipping, feature manipulation)",
+        "Understand how poisoning affects model performance on targeted subgroups",
+        "Apply outlier detection methods to identify poisoned samples",
+        "Implement robust training techniques that mitigate poisoning attacks"
+      ],
+      "lite": "full",
+      "journey": null,
+      "llm_optional": false
+    },
+    {
+      "num": "2B",
+      "vol": 2,
+      "chapter": "vol2",
+      "subchapter": "Chapter 2: Security, Privacy, and Robustness",
+      "slug": "notebook_2B_byzantine_fl",
+      "file": "vol 2 notebooks/notebook_2B_byzantine_fl.ipynb",
+      "title": "Byzantine Federated Learning",
+      "question": "What happens to federated learning when some participating sites send bad updates?",
+      "concepts": [
+        "Implement a basic federated learning simulation with multiple participants",
+        "Simulate Byzantine attacks including random noise and targeted poisoning",
+        "Compare aggregation methods: FedAvg, coordinate-wise median, trimmed mean, and Krum",
+        "Evaluate trade-offs between Byzantine tolerance and convergence speed"
+      ],
+      "lite": "full",
+      "journey": null,
+      "llm_optional": false
+    },
+    {
+      "num": "5A",
+      "vol": 2,
+      "chapter": "vol2",
+      "subchapter": "Chapter 5: Deployment & Integration",
+      "slug": "notebook_5A_alert_design",
+      "file": "vol 2 notebooks/notebook_5A_alert_design.ipynb",
+      "title": "Alert Design",
+      "question": "How do you set alert thresholds that catch deterioration without causing alarm fatigue?",
+      "concepts": [
+        "Understand the sensitivity-specificity tradeoff in clinical alerts",
+        "Calculate positive predictive value (PPV) at different disease prevalence levels",
+        "Simulate alert fatigue and its impact on clinician response",
+        "Design alert thresholds appropriate for different clinical contexts"
+      ],
+      "lite": "full",
+      "journey": null,
+      "llm_optional": false
+    },
+    {
+      "num": "6A",
+      "vol": 2,
+      "chapter": "vol2",
+      "subchapter": "Chapter 6: AI Maturity & Success Metrics",
+      "slug": "notebook_6A_success_metrics",
+      "file": "vol 2 notebooks/notebook_6A_success_metrics.ipynb",
+      "title": "Success Metrics",
+      "question": "How do you show that a clinical AI deployment is worth what it costs?",
+      "concepts": [
+        "Define and calculate key success metrics for healthcare AI implementations",
+        "Build ROI models for AI investment decisions",
+        "Perform cost-benefit analysis with sensitivity analysis",
+        "Create success tracking dashboards"
+      ],
+      "lite": "full",
+      "journey": null,
+      "llm_optional": false
     }
   ]
 }

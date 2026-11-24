@@ -1,182 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Notebooks — Artificial Intelligence in Healthcare</title>
-  <meta name="description" content="Companion Jupyter notebooks for the AI in Healthcare textbook series by Farhad Abtahi and Mehdi Astaraki.">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Notebooks — Artificial Intelligence in Healthcare</title>
+<meta name="description" content="Hands-on companion notebooks for the Artificial Intelligence in Healthcare textbook series: run them in Colab, in your browser with JupyterLite, or read them online."/>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+<link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-
-<header class="site-header">
-  <div class="container">
-    <p class="eyebrow">Companion Notebooks</p>
-    <h1>Artificial Intelligence in Healthcare</h1>
-    <p class="subtitle">Hands-on Jupyter notebooks for the three-volume textbook series</p>
-    <nav class="header-meta">
-      <a href="https://aiinhealthcarebook.com" target="_blank" rel="noopener">&#8594; Book website</a>
-      <a href="https://github.com/farhad-abtahi/healthcareaibook" target="_blank" rel="noopener">&#8594; GitHub repository</a>
-    </nav>
+<header>
+  <div class="wrap">
+    <p class="kicker">Companion Notebook Gallery</p>
+    <h1 id="bookTitle">Artificial Intelligence in Healthcare</h1>
+    <p class="sub" id="bookSub">Hands-on companion notebooks for the three-volume textbook series</p>
+    <div class="links" id="topLinks"></div>
   </div>
 </header>
 
-<main>
-  <div class="container">
-    <!-- Legend: show what each button type does -->
-    <div class="legend">
-      <span class="legend-label">Buttons:</span>
-      <span class="btn btn-download">&#8595; Download</span>
-      <span class="btn btn-colab">&#9654; Google Colab</span>
-      <span class="btn btn-nbviewer">&#128065; nbviewer</span>
-      <span class="btn btn-lite">&#9889; JupyterLite</span>
-      <span class="btn btn-disabled" title="Requires packages not available in-browser">&#9889; JupyterLite (needs install)</span>
-    </div>
-
-    <div id="catalog">
-      <p style="padding:2rem 0; color:#5a6a7e;">Loading notebooks&hellip;</p>
-    </div>
+<main class="wrap">
+  <nav class="tabs" id="tabs" aria-label="Chapters"></nav>
+  <div class="toolbar">
+    <label class="visually-hidden" for="search">Search notebooks</label>
+    <input id="search" type="search" placeholder="Search topics, methods, and clinical journeys…"/>
+    <label class="filter" for="liteFilter">Runs in:</label>
+    <select id="liteFilter">
+      <option value="all">anywhere</option>
+      <option value="full">browser (JupyterLite)</option>
+      <option value="colab">Colab / local only</option>
+    </select>
   </div>
+  <p class="count" id="count" aria-live="polite"></p>
+  <div class="grid" id="grid"><p>Loading notebooks…</p></div>
 </main>
 
-<footer class="site-footer">
-  <div class="container">
-    <p>
-      Companion code for <em>Artificial Intelligence in Healthcare</em> by Farhad Abtahi and Mehdi Astaraki.
-      &nbsp;&middot;&nbsp;
-      <a href="https://aiinhealthcarebook.com">aiinhealthcarebook.com</a>
-      &nbsp;&middot;&nbsp;
-      <a href="https://github.com/farhad-abtahi/healthcareaibook">GitHub</a>
-    </p>
-  </div>
+<footer class="wrap">
+  <p>All patient data in these notebooks is <b>synthetic</b>: it illustrates methods and is not epidemiological evidence.
+     Notebooks marked <b>optional LLM API key</b> run fully offline with simulated responses; each explains how to add your own key.</p>
+  <p class="legend">Buttons: <b>Colab</b> runs the full notebook · <b>View</b> is read-only with saved outputs ·
+     <b>JupyterLite</b> runs in your browser, no install (first load takes a minute) · <b>.ipynb</b> downloads the notebook.</p>
+  <p id="footLinks"></p>
 </footer>
 
 <script>
-(function () {
-  function encodePath(path) {
-    return path.split('/').map(encodeURIComponent).join('/');
+const LITE_LABEL = { full: "runs in browser (JupyterLite)", colab: "use Colab or local Jupyter (not available in the browser version)" };
+let currentTab = decodeURIComponent((location.hash || "").slice(1)) || "all";
+let DATA = null;
+
+function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+function encPath(p){ return p.split("/").map(encodeURIComponent).join("/"); }
+function colabURL(nb){ return `https://colab.research.google.com/github/${DATA.repo}/blob/${DATA.branch}/${encPath(nb.file)}`; }
+function rawURL(nb){ return `https://raw.githubusercontent.com/${DATA.repo}/${DATA.branch}/${encPath(nb.file)}`; }
+function liteURL(nb){ return `lite/lab/index.html?path=${encodeURIComponent(nb.slug)}.ipynb`; }
+function viewURL(nb){ return `nb/${encodeURIComponent(nb.slug)}.html`; }
+
+function renderTabs(){
+  const counts = { all: DATA.notebooks.length };
+  for (const nb of DATA.notebooks) counts[nb.chapter] = (counts[nb.chapter] || 0) + 1;
+  const tabs = [{ id: "all", label: "All", title: "All notebooks" }, ...DATA.chapters];
+  const el = document.getElementById("tabs");
+  el.innerHTML = tabs.map(t =>
+    `<button class="tab${t.id === currentTab ? " active" : ""}" data-tab="${esc(t.id)}" title="${esc(t.title)}"
+      aria-pressed="${t.id === currentTab}">${esc(t.label)} <span class="n">${counts[t.id] || 0}</span></button>`).join("");
+  el.querySelectorAll(".tab").forEach(b => b.addEventListener("click", () => {
+    currentTab = b.dataset.tab;
+    history.replaceState(null, "", currentTab === "all" ? location.pathname : "#" + currentTab);
+    renderTabs(); render();
+  }));
+}
+
+function render(){
+  const q = document.getElementById("search").value.toLowerCase().trim();
+  const lf = document.getElementById("liteFilter").value;
+  const chTitle = Object.fromEntries(DATA.chapters.map(c => [c.id, c.title]));
+  const grid = document.getElementById("grid");
+  const cards = [];
+  for (const nb of DATA.notebooks){
+    if (currentTab !== "all" && nb.chapter !== currentTab) continue;
+    if (lf !== "all" && nb.lite !== lf) continue;
+    const hay = [nb.num, nb.title, nb.question, nb.subchapter, chTitle[nb.chapter], nb.journey || "", ...nb.concepts].join(" ").toLowerCase();
+    if (q && !hay.includes(q)) continue;
+    const chips =
+      `<span class="chip${nb.vol === 2 ? " vol2" : ""}">${nb.vol === 2 ? "Vol 2 · " + esc(nb.subchapter.split(":")[0]) : "Chapter " + esc(nb.num.split(".")[0])}</span>`
+      + (nb.journey ? ` <span class="chip journey">Journey: ${esc(nb.journey)}</span>` : "")
+      + (nb.llm_optional ? ` <span class="chip llm">optional LLM API key</span>` : "");
+    cards.push(`<article class="card">
+      <div>${chips}</div>
+      <h3><span class="num">${esc(nb.num)}</span> ${esc(nb.title)}</h3>
+      <p class="q">${esc(nb.question)}</p>
+      <p class="demo-title">You will</p>
+      <ul>${nb.concepts.map(c => `<li>${esc(c)}</li>`).join("")}</ul>
+      <p class="lite-note ${nb.lite}">${esc(LITE_LABEL[nb.lite])}</p>
+      <div class="btns">
+        <a class="btn colab" href="${colabURL(nb)}" target="_blank" rel="noopener">▶ Colab</a>
+        <a class="btn view" href="${viewURL(nb)}" target="_blank" rel="noopener">👁 View</a>
+        ${nb.lite === "full" ? `<a class="btn lite" href="${liteURL(nb)}" target="_blank" rel="noopener">⚡ JupyterLite</a>` : ""}
+        <a class="btn dl" href="${rawURL(nb)}" target="_blank" rel="noopener">↓ .ipynb</a>
+      </div>
+    </article>`);
   }
+  grid.innerHTML = cards.join("") || `<p class="empty">No notebooks match. Try another search or tab.</p>`;
+  document.getElementById("count").textContent = `${cards.length} notebook${cards.length === 1 ? "" : "s"}`
+    + (currentTab !== "all" ? ` · ${chTitle[currentTab] || ""}` : "");
+}
 
-  function escHtml(s) {
-    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-  }
-
-  function makeAnchor(href, cls, text, extra) {
-    var a = document.createElement('a');
-    a.href = href;
-    a.className = 'btn ' + cls;
-    a.target = '_blank';
-    a.rel = 'noopener';
-    a.textContent = text;
-    if (extra) { Object.keys(extra).forEach(function(k) { a.setAttribute(k, extra[k]); }); }
-    return a;
-  }
-
-  function makeRow(nb, repo, branch) {
-    if (!nb.path) { console.warn('Skipping notebook with missing path:', nb.filename); return null; }
-
-    var ep = encodePath(nb.path);
-    var downloadUrl  = 'https://raw.githubusercontent.com/' + repo + '/' + branch + '/' + ep;
-    var colabUrl     = 'https://colab.research.google.com/github/' + repo + '/blob/' + branch + '/' + ep;
-    var nbviewerUrl  = 'https://nbviewer.org/github/' + repo + '/blob/' + branch + '/' + ep;
-    var liteUrl      = './lite/lab/index.html?path=' + encodeURIComponent(nb.filename);
-
-    var row = document.createElement('div');
-    row.className = 'notebook-row';
-
-    var titleSpan = document.createElement('span');
-    titleSpan.className = 'nb-title';
-    titleSpan.textContent = nb.title;
-    row.appendChild(titleSpan);
-
-    var actions = document.createElement('div');
-    actions.className = 'nb-actions';
-
-    actions.appendChild(makeAnchor(downloadUrl, 'btn-download', '↓ Download', null));
-    actions.appendChild(makeAnchor(colabUrl,    'btn-colab',    '▶ Colab',    null));
-    actions.appendChild(makeAnchor(nbviewerUrl, 'btn-nbviewer', '👁 nbviewer', null));
-
-    if (nb.lite === true) {
-      actions.appendChild(makeAnchor(liteUrl, 'btn-lite', '⚡ JupyterLite', null));
-    } else {
-      var span = document.createElement('span');
-      span.className = 'btn btn-disabled';
-      span.title = 'Requires packages not installable in-browser';
-      span.textContent = '⚡ JupyterLite';
-      actions.appendChild(span);
-    }
-
-    row.appendChild(actions);
-    return row;
-  }
-
-  var catalogEl = document.getElementById('catalog');
-
-  fetch('./notebooks.json')
-    .then(function (r) {
-      if (!r.ok) throw new Error('HTTP ' + r.status);
-      return r.json();
-    })
-    .then(function (catalog) {
-      if (!catalog.repo || !catalog.branch) throw new Error('Malformed catalog: missing repo or branch');
-      if (!Array.isArray(catalog.volumes)) throw new Error('Malformed catalog: missing volumes array');
-
-      var repo   = catalog.repo;
-      var branch = catalog.branch;
-      var frag   = document.createDocumentFragment();
-
-      catalog.volumes.forEach(function (vol) {
-        var volEl = document.createElement('section');
-        volEl.className = 'volume';
-        volEl.setAttribute('data-color', vol.color || 'navy');
-
-        var volHeader = document.createElement('div');
-        volHeader.className = 'volume-header';
-
-        var mark = document.createElement('span');
-        mark.className = 'volume-mark';
-        mark.setAttribute('aria-hidden', 'true');
-
-        var h2 = document.createElement('h2');
-        h2.textContent = vol.title;
-
-        volHeader.appendChild(mark);
-        volHeader.appendChild(h2);
-        volEl.appendChild(volHeader);
-
-        vol.chapters.forEach(function (ch) {
-          var chEl = document.createElement('div');
-          chEl.className = 'chapter';
-
-          var h3 = document.createElement('h3');
-          h3.textContent = ch.title;
-          chEl.appendChild(h3);
-
-          var list = document.createElement('div');
-          list.className = 'notebook-list';
-
-          ch.notebooks.forEach(function (nb) {
-            var row = makeRow(nb, repo, branch);
-            if (row) list.appendChild(row);
-          });
-
-          chEl.appendChild(list);
-          volEl.appendChild(chEl);
-        });
-
-        frag.appendChild(volEl);
-      });
-
-      catalogEl.innerHTML = '';
-      catalogEl.appendChild(frag);
-    })
-    .catch(function (err) {
-      var msg = err && err.message ? err.message : String(err || 'Unknown error');
-      catalogEl.innerHTML = '<p style="padding:2rem 0;color:#c0392b;">Failed to load notebook catalog: ' + escHtml(msg) + '</p>';
-    });
-}());
+fetch("notebooks.json").then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); }).then(d => {
+  DATA = d;
+  if (!DATA.chapters.some(c => c.id === currentTab)) currentTab = "all";
+  const gh = `https://github.com/${d.repo}`;
+  document.getElementById("topLinks").innerHTML =
+    (d.book_url ? `<a href="${esc(d.book_url)}" target="_blank" rel="noopener">→ Book website</a>` : "")
+    + `<a href="${gh}" target="_blank" rel="noopener">→ GitHub repository</a>`;
+  document.getElementById("footLinks").innerHTML =
+    `Companion code for <em>${esc(d.book_title)}</em> by ${esc(d.authors)} · `
+    + (d.book_url ? `<a href="${esc(d.book_url)}">${esc(d.book_url.replace(/^https?:\/\//, ""))}</a> · ` : "")
+    + `<a href="${gh}">GitHub</a>`;
+  document.getElementById("search").addEventListener("input", render);
+  document.getElementById("liteFilter").addEventListener("change", render);
+  window.addEventListener("hashchange", () => {
+    const h = decodeURIComponent(location.hash.slice(1)) || "all";
+    currentTab = DATA.chapters.some(c => c.id === h) ? h : "all";
+    renderTabs(); render();
+  });
+  renderTabs(); render();
+}).catch(e => {
+  document.getElementById("grid").innerHTML = `<p class="empty">Could not load notebooks.json (${esc(e.message)}).</p>`;
+});
 </script>
-
 </body>
 </html>
