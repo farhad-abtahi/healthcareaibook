@@ -36,11 +36,11 @@ jobs:
         run: |
           set +e   # don't stop on first failure — log and continue
 
-          # Notebooks that require live API keys — skip
-          SKIP="notebook_8_4 notebook_8_5 notebook_8_6 notebook_8_7 notebook_8_8"
+          # Ch 8 LLM notebooks (8.4-8.8) run without an API key using simulated responses,
+          # so they are executed here; their live-LLM cells skip when OPENROUTER_API_KEY is unset.
 
           # Notebooks with known Keras-3 / shape bugs (already have partial outputs)
-          SKIP="$SKIP notebook_10_3 notebook_11_3"
+          SKIP="notebook_10_3 notebook_11_3"
 
           # notebook_10_4 generates 693 MB of outputs — exceeds GitHub's 100 MB file limit
           SKIP="$SKIP notebook_10_4"
