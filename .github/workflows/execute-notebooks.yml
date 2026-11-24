@@ -28,7 +28,7 @@ jobs:
             pandas matplotlib seaborn scipy \
             scikit-learn scikit-image xgboost PyWavelets \
             statsmodels networkx \
-            shap lime imbalanced-learn \
+            "shap<0.55" lime imbalanced-learn \
             tensorflow opencv-python-headless transformers \
             Pillow jupyter nbconvert ipykernel
 
@@ -63,8 +63,9 @@ jobs:
               --ExecutePreprocessor.timeout=900 \
               "$nb" \
               && echo "OK:   $nb" \
-              || echo "FAIL: $nb"
+              || { echo "FAIL: $nb"; FAILED="$FAILED\n  $nb"; }
           }
+          FAILED=""
 
           # Vol 1 — execute in chapter order
           for nb in "vol 1 notebooks"/chapter_04/*.ipynb \
@@ -83,6 +84,11 @@ jobs:
             run_nb "$nb"
           done
 
+          if [ -n "$FAILED" ]; then
+            echo -e "::error::Notebooks failed:$FAILED"
+            echo -e "FAILED$FAILED" > failed.txt
+          fi
+
       - name: Commit outputs
         run: |
           git config user.name "github-actions[bot]"
@@ -95,3 +101,7 @@ jobs:
           else
             echo "No changes — notebooks already up to date"
           fi
+
+      - name: Fail if any notebook failed
+        run: |
+          if [ -f failed.txt ]; then cat failed.txt; exit 1; fi

@@ -33,7 +33,7 @@ sentencepiece>=0.1.99
 openai>=1.0.0
 
 # Interpretability
-shap>=0.42.0  # For SHAP explanations
+shap>=0.42.0,<0.55  # For SHAP explanations (output format changed in 0.45; bump after testing)
 lime>=0.2.0   # For LIME explanations
 
 # Privacy and security
