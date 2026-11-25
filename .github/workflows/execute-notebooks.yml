@@ -34,9 +34,9 @@ jobs:
             "shap<0.55" lime imbalanced-learn \
             tensorflow opencv-python-headless transformers \
             Pillow jupyter nbconvert ipykernel
-          # PyTorch (CPU build) + Opacus for the DP-SGD section of notebook 11.1
+          # PyTorch (CPU build) + Opacus for 11.1 DP-SGD; sklearn-crfsuite for the 8.2 CRF
           pip install torch --index-url https://download.pytorch.org/whl/cpu
-          pip install opacus
+          pip install opacus sklearn-crfsuite
 
       - name: Execute notebooks
         run: |
